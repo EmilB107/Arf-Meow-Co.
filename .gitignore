@@ -35,3 +35,4 @@ Thumbs.db
 CHANGELOG.md export-ignore
 .styleci.yml export-ignore
 
+/.vs
