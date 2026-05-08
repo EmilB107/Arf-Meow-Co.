@@ -1,61 +1,149 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Arf & Meow Co. — Product Catalog
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A Laravel 12 product catalog management system with role-based access control for Super Admins, Admins, and Project Managers.
 
-## About Laravel
+## Prerequisites
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Before you start, make sure you have the following installed on your machine:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+| Tool | Version | Notes |
+|------|---------|-------|
+| PHP | 8.2+ | Easiest via [Laragon](https://laragon.org/) or [XAMPP](https://www.apachefriends.org/) on Windows |
+| Composer | Latest | [getcomposer.org](https://getcomposer.org/download/) |
+| Node.js | LTS (18+) | [nodejs.org](https://nodejs.org/) — includes npm |
+| MySQL | 8.0+ | Comes bundled with Laragon or XAMPP |
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+> **Recommended for Windows:** Use [Laragon](https://laragon.org/) — it bundles PHP, MySQL, and a terminal in one installer.
 
-## Learning Laravel
+## Installing Prerequisites (Windows)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Laragon (PHP + MySQL)
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+1. Download Laragon from [laragon.org](https://laragon.org/) and run the installer
+2. Launch Laragon and click **Start All** to start Apache and MySQL
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Composer
 
-## Laravel Sponsors
+1. Download the installer from [getcomposer.org/download](https://getcomposer.org/download/)
+2. Run the installer — when it asks for the PHP executable, point it to Laragon's PHP:
+   ```
+   C:\laragon\bin\php\php8.2+\php.exe
+   ```
+3. Check **"Add this PHP to your PATH"** so you can run `php` from any terminal
+4. Leave **"Use a proxy server"** unchecked (unless your network requires one)
+5. Finish the installation — open a new terminal and run `composer --version` to verify
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### Enable required PHP extensions
 
-### Premium Partners
+Before running `composer install`, make sure these extensions are enabled in your `php.ini`:
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+1. Open `C:\laragon\bin\php\php8.2+\php.ini` in a text editor
+2. Find these lines and remove the semicolon at the start of each:
+   ```
+   extension=fileinfo
+   extension=pdo_mysql
+   extension=mysqli
+   ```
+3. Save the file and restart Laragon (**Stop All** → **Start All**)
 
-## Contributing
+### Node.js
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+1. Download the LTS version from [nodejs.org](https://nodejs.org/)
+2. Run the installer with default settings
+3. Verify with `node --version` and `npm --version` in a terminal
 
-## Code of Conduct
+## Setup
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 1. Clone the repository
 
-## Security Vulnerabilities
+```bash
+git clone https://github.com/jkrustia/ProductCatalog---Final_Project.git
+cd ProductCatalog---Final_Project
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 2. Install dependencies
 
-## License
+```bash
+composer install
+npm install
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 3. Configure environment
+
+```bash
+cp .env.example .env         # Linux/Mac
+copy .env.example .env       # Windows Command Prompt
+```
+
+Then open `.env` and fill in your MySQL database credentials:
+
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=arf_meow
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+> **Note:** Make sure your MySQL server is running and the database (`arf_meow`) already exists. Create it in **HeidiSQL** (Laragon's database manager — click **Database** in Laragon) by right-clicking the left panel → **Create new** → **Database**, name it `arf_meow`, and set the collation to `utf8mb4_general_ci`.
+
+### 4. Generate app key
+
+```bash
+php artisan key:generate
+```
+
+### 5. Run migrations and seed the database
+
+```bash
+php artisan migrate
+php artisan db:seed
+```
+
+### 6. Create the storage symlink (for product images)
+
+```bash
+php artisan storage:link
+```
+
+> **Note:** If you get a message saying the link already exists, that's fine — skip it.
+
+## Running the Dev Server
+
+```bash
+composer run dev
+```
+
+This starts four processes at once: the Laravel server, queue worker, log watcher, and Vite (frontend assets). Open **http://localhost:8000** in your browser.
+
+## Default Accounts
+
+After seeding, you can log in with these accounts:
+
+| Role | Email | Password |
+|------|-------|----------|
+| Super Admin | superadmin@example.com | password |
+| Admin | admin@example.com | password |
+| Project Manager | PM@example.com | password |
+
+## Features
+
+- Product management (create, view, edit, delete)
+- Category & subcategory management
+- Inventory tracking with stock status (In Stock / Low Stock / Out of Stock)
+- SKU and price management
+- Product image uploads
+- Role-based access: Super Admin, Admin, Project Manager
+- User management (Super Admin only)
+- User signup
+
+## Role Permissions
+
+| Feature                | Super Admin | Admin | Project Manager |
+|------------------------|:-----------:|:-----:|:---------------:|
+| View products          |     Yes     |  Yes  |       Yes       |
+| Create / Edit products |     Yes     |  Yes  |       No        |
+| Delete products        |     Yes     |  No   |       No        |
+| Manage categories      |     Yes     |  Yes  |       No        |
+| Manage users           |     Yes     |  No   |       No        |
