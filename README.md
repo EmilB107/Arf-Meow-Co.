@@ -1,5 +1,7 @@
 # Arf & Meow Co. — Product Catalog
 
+> **TODO:** Deploy to [Render](https://render.com) (free tier — sleeps after 15min inactivity, ~30s cold start).
+
 A Laravel 12 product catalog management system with role-based access control for Super Admins, Admins, and Project Managers.
 
 ## Prerequisites
