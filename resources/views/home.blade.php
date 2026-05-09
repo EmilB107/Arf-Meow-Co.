@@ -114,7 +114,7 @@
     <section class="container-fluid">
         <div class="form">
             <h2 class="mb-3">For any concern, send us a message:</h2>
-            <form class="ms-lg-4" action="" method="post">
+            <form action="" method="post">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
                 <label for="email">Email Address:</label>

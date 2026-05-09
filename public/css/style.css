@@ -28,6 +28,7 @@
     --color-text-primary: #374151; /* Dark Slate Gray */
     --color-text-secondary: #6b7280; /* Cool Gray */
     --color-accent: #34d399; /* Fresh Mint Green */
+    --color-accent-hover: #24c18a; /* Darker Mint Green (hover) */
     --color-border: #e5e7eb; /* Light Taupe */
 }
 
@@ -44,6 +45,11 @@ nav a {
     color: white;
     font-weight: bold;
     text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+nav .d-flex a:hover {
+    opacity: 0.75;
 }
 
 nav img {
@@ -73,6 +79,10 @@ nav img {
     font-size: 0.675rem;
     font-weight: bold;
     border-radius: 1rem;
+}
+
+.left-col a:hover {
+    background-color: var(--color-accent-hover);
 }
 
 .right-col {
@@ -225,12 +235,16 @@ nav img {
     text-align: center;
 }
 
+.featured a:hover {
+    background-color: var(--color-accent-hover);
+}
+
 .form {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 350px;
-    margin-top: 1.5rem;
+    margin: 1.5rem auto;
     padding: 0 0.8rem;
 }
 
@@ -268,6 +282,10 @@ nav img {
     margin: 0 auto;
 }
 
+.form button:hover {
+    background-color: var(--color-accent-hover);
+}
+
 footer h2 {
     font-family: "Baloo", sans-serif;
     color: var(--color-text-primary);
@@ -289,6 +307,11 @@ footer .connect {
 footer a img {
     width: 12px;
     margin: 0;
+    transition: transform 0.2s ease;
+}
+
+footer a:hover img {
+    transform: translateY(-4px);
 }
 
 .signup img {
@@ -328,6 +351,10 @@ footer a img {
     cursor: pointer;
     display: block;
     margin: 10px auto;
+}
+
+.signup button:hover {
+    background-color: var(--color-accent-hover);
 }
 
 .username {
@@ -526,6 +553,10 @@ footer a img {
     cursor: pointer;
 }
 
+.add-btn:hover {
+    background-color: var(--color-accent-hover);
+}
+
 .product-search-bar {
     justify-content: flex-start;
     align-items: center;
@@ -578,7 +609,7 @@ footer a img {
 }
 
 .search-btn:hover {
-    background: #24c18a;
+    background: var(--color-accent-hover);
 }
 
 .return img {
@@ -641,6 +672,11 @@ footer a img {
     background-color: var(--color-accent);
     border-radius: 8px;
     padding: 0.4rem 1.2rem;
+}
+
+.crud-card a:hover,
+.crud-card button:hover {
+    background-color: var(--color-accent-hover);
 }
 
 .crud-card input,
@@ -737,6 +773,11 @@ footer a img {
     padding: 0.2rem 0.4rem;
 }
 
+.d-inventory-update td a:hover,
+.d-prices-edit td a:hover {
+    background-color: var(--color-accent-hover);
+}
+
 .d-inventory-update .form {
     display: flex;
     flex-direction: column;
@@ -804,6 +845,11 @@ footer a img {
     border: none;
     border-radius: 8px;
     padding: 0.6rem 0.8rem;
+}
+
+.d-category-edit button:hover,
+.d-category-create button:hover {
+    background-color: var(--color-accent-hover);
 }
 
 .d-prices-edit td input[type="number"] {
@@ -996,7 +1042,6 @@ footer a img {
     .form {
         width: 600px;
         margin: 2.5rem auto;
-        display: flex;
     }
 
     .form h2 {
