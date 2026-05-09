@@ -123,11 +123,11 @@ This starts four processes at once: the Laravel server, queue worker, log watche
 
 After seeding, you can log in with these accounts:
 
-| Role | Email | Password |
-|------|-------|----------|
-| Super Admin | superadmin@example.com | password |
-| Admin | admin@example.com | password |
-| Project Manager | PM@example.com | password |
+| Role            | Email                  | Password | Redirects To  |
+|-----------------|------------------------|----------|---------------|
+| Super Admin     | superadmin@example.com | password | `/superadmin` |
+| Admin           | admin@example.com      | password | `/dashboard`  |
+| Project Manager | PM@example.com         | password | `/dashboard`  |
 
 ## Features
 
