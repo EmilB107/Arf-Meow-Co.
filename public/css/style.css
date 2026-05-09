@@ -647,7 +647,7 @@ footer a:hover img {
 
 .crud-card span {
     font-family: "Nunito", sans-serif;
-    color: var(--color-text-secondaryary);
+    color: var(--color-text-secondary);
     font-size: 0.675rem;
 }
 
@@ -699,16 +699,6 @@ footer a:hover img {
     font-family: "Nunito", sans-serif;
     color: var(--color-text-secondary);
 }
-
-/* .crud-card button {
-    background-color: var(--color-accent);
-    border-radius: 8px;
-    color: white;
-    font-weight: bold;
-    font-family: "Quicksand", sans-serif;
-    font-size: 0.675rem;
-    cursor: pointer;
-} */
 
 .upload img {
     width: 18px;

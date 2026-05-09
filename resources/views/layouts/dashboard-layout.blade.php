@@ -25,7 +25,7 @@
                 </form>
                 <div class="me-2 d-flex flex-column align-items-center">
                     <img src="{{ asset('images/pic.png') }}" alt="User Image" width="30">
-                    <p class="username fw-bold">{{ Auth::user()->name }}</p>
+                    <p class="username fw-bold">{{ Auth::user()?->name }}</p>
                 </div>
             </div>
         </div>

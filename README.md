@@ -45,7 +45,9 @@ Before running `composer install`, make sure these extensions are enabled in you
    extension=fileinfo
    extension=pdo_mysql
    extension=mysqli
+   extension=pdo_sqlite
    ```
+   > `pdo_sqlite` is only required for running tests — the app itself uses MySQL.
 3. Save the file and restart Laragon (**Stop All** → **Start All**)
 
 ### Node.js
@@ -111,6 +113,16 @@ php artisan storage:link
 
 > **Note:** If you get a message saying the link already exists, that's fine — skip it.
 
+## Running Tests
+
+The test suite uses an in-memory SQLite database — no extra setup needed beyond enabling `pdo_sqlite` (see Prerequisites).
+
+```bash
+php artisan test
+```
+
+63 tests across auth, registration, role redirects, product CRUD, and access control.
+
 ## Running the Dev Server
 
 ```bash
@@ -146,6 +158,6 @@ After seeding, you can log in with these accounts:
 |------------------------|:-----------:|:-----:|:---------------:|
 | View products          |     Yes     |  Yes  |       Yes       |
 | Create / Edit products |     Yes     |  Yes  |       No        |
-| Delete products        |     Yes     |  No   |       No        |
+| Delete products        |     Yes     |  Yes  |       No        |
 | Manage categories      |     Yes     |  Yes  |       No        |
 | Manage users           |     Yes     |  No   |       No        |

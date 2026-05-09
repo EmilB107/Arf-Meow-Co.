@@ -21,93 +21,87 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
-// Auth Routes
-// Changed signup route name for clarity when linking from other pages
+// ==========================
+// AUTH ROUTES
+// ==========================
 Route::get('/signup', function () {
     return view('auth.signup');
-})->name('auth.signup'); // Renamed from signup.submit if it was used for the GET route
+})->name('auth.signup');
 
 Route::post('/signup', [AuthController::class, 'register'])->name('signup.submit');
 
-// Login Routes
 Route::get('/login', function () {
     return view('auth.login');
-})->name('login'); // This is the primary login route name
+})->name('login');
 
 Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
-Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
-
-// Dashboard
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-
-
 // ==========================
-// PRODUCTS ROUTES
+// PROTECTED ROUTES
 // ==========================
-Route::resource('products', ProductController::class);
+Route::middleware('auth')->group(function () {
 
+    // DASHBOARD — all roles
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-// ==========================
-// CATEGORIES ROUTES
-// ==========================
-// Replace the individual routes below with this single line:
-Route::resource('categories', CategoriesController::class);
+    // PRODUCTS
+    // Static segments (create) must come before wildcards ({product}) to avoid capture
+    Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+    Route::get('/products/create', [ProductController::class, 'create'])->name('products.create')->middleware('role:Super Admin,Admin');
+    Route::post('/products', [ProductController::class, 'store'])->name('products.store')->middleware('role:Super Admin,Admin');
+    Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
+    Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit')->middleware('role:Super Admin,Admin');
+    Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update')->middleware('role:Super Admin,Admin');
+    Route::patch('/products/{product}', [ProductController::class, 'update'])->middleware('role:Super Admin,Admin');
+    Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy')->middleware('role:Super Admin,Admin');
 
-// Removed old individual category routes:
-// Route::get('/categories', [CategoriesController::class, 'index'])->name('categories.index');
-// Route::get('/categories/create', function () {
-//     return view('categories.create');
-// })->name('categories.create');
-// Route::get('/categories/{id}', [CategoriesController::class, 'show'])->name('categories.show');
-// Route::get('/categories/{id}/edit', [CategoriesController::class, 'edit')->name('categories.edit');
-// Route::delete('/categories/{id}', [CategoriesController::class, 'destroy'])->name('categories.destroy');
+    // CATEGORIES — Super Admin + Admin only
+    Route::resource('categories', CategoriesController::class)
+        ->middleware('role:Super Admin,Admin');
 
+    // INVENTORY — all roles
+    Route::get('/inventory', [InventoryController::class, 'index'])->name('inventory.index');
+    Route::get('/inventory/edit', [InventoryController::class, 'edit'])->name('inventory.edit');
+    Route::put('/inventory/{product}', [InventoryController::class, 'update'])->name('inventory.update');
 
-// ==========================
-// INVENTORY ROUTES
-// ==========================
-Route::get('/inventory', [InventoryController::class, 'index'])->name('inventory.index');
-Route::get('/inventory/edit', [InventoryController::class, 'edit'])->name('inventory.edit');
-Route::put('/inventory/{product}', [InventoryController::class, 'update'])->name('inventory.update');
+    // PRICES — all roles
+    Route::get('/prices', [PriceController::class, 'index'])->name('prices.index');
+    Route::get('/prices/{product}/edit', [PriceController::class, 'edit'])->name('prices.edit');
+    Route::post('/prices/{product}', [PriceController::class, 'update'])->name('prices.update');
 
-// ==========================
-// PRICES ROUTES
-// ==========================
-Route::get('/prices', [PriceController::class, 'index'])->name('prices.index');
-Route::get('/prices/{product}/edit', [PriceController::class, 'edit'])->name('prices.edit');
-// Add the POST route for updating the price, using {product} for route model binding
-Route::post('/prices/{product}', [PriceController::class, 'update'])->name('prices.update');
+    // SUPER ADMIN — Super Admin only
+    Route::middleware('role:Super Admin')->group(function () {
 
-// ==========================
-// SUPER ADMIN ROUTES
-// ==========================
-Route::get('/superadmin', function () {
-    return view('superadmin.index');
-})->name('superadmin.index');
+        Route::get('/superadmin', function () {
+            return view('superadmin.index');
+        })->name('superadmin.index');
 
-Route::prefix('superadmin')->group(function () {
+        Route::prefix('superadmin')->group(function () {
 
-    // USERS
-    Route::get('/user', [UsersController::class, 'index'])->name('user.index');
-    Route::get('/user/create', [UsersController::class, 'create'])->name('user.create');
-    Route::get('/user/{id}', [UsersController::class, 'show'])->name('user.show');
-    Route::get('/user/{id}/edit', [UsersController::class, 'edit'])->name('user.edit');
-    Route::delete('/user/{id}', [UsersController::class, 'destroy'])->name('user.destroy');
+            // USERS
+            Route::get('/user', [UsersController::class, 'index'])->name('user.index');
+            Route::get('/user/create', [UsersController::class, 'create'])->name('user.create');
+            Route::get('/user/{id}', [UsersController::class, 'show'])->name('user.show');
+            Route::get('/user/{id}/edit', [UsersController::class, 'edit'])->name('user.edit');
+            Route::delete('/user/{id}', [UsersController::class, 'destroy'])->name('user.destroy');
 
-    // ADMINS
-    Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
-    Route::get('/admin/create', [AdminController::class, 'create'])->name('admin.create');
-    Route::get('/admin/{id}', [AdminController::class, 'show'])->name('admin.show');
-    Route::get('/admin/{id}/edit', [AdminController::class, 'edit'])->name('admin.edit');
-    Route::delete('/admin/{id}', [AdminController::class, 'destroy'])->name('admin.destroy');
+            // ADMINS
+            Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+            Route::get('/admin/create', [AdminController::class, 'create'])->name('admin.create');
+            Route::get('/admin/{id}', [AdminController::class, 'show'])->name('admin.show');
+            Route::get('/admin/{id}/edit', [AdminController::class, 'edit'])->name('admin.edit');
+            Route::delete('/admin/{id}', [AdminController::class, 'destroy'])->name('admin.destroy');
 
-    // PROJECT MANAGERS
-    Route::get('/project-manager', [ProjManController::class, 'index'])->name('project-manager.index');
-    Route::get('/project-manager/create', [ProjManController::class, 'create'])->name('project-manager.create');
-    Route::get('/project-manager/{id}', [ProjManController::class, 'show'])->name('project-manager.show');
-    Route::get('/project-manager/{id}/edit', [ProjManController::class, 'edit'])->name('project-manager.edit');
-    Route::delete('/project-manager/{id}', [ProjManController::class, 'destroy'])->name('project-manager.destroy');
+            // PROJECT MANAGERS
+            Route::get('/project-manager', [ProjManController::class, 'index'])->name('project-manager.index');
+            Route::get('/project-manager/create', [ProjManController::class, 'create'])->name('project-manager.create');
+            Route::get('/project-manager/{id}', [ProjManController::class, 'show'])->name('project-manager.show');
+            Route::get('/project-manager/{id}/edit', [ProjManController::class, 'edit'])->name('project-manager.edit');
+            Route::delete('/project-manager/{id}', [ProjManController::class, 'destroy'])->name('project-manager.destroy');
+        });
+
+    });
+
 });

@@ -99,77 +99,42 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'product_name' => 'required|string|max:255',
-            'sku' => 'nullable|string|max:100',
-            'description' => 'nullable|string',
-            'category' => 'required|string',  // For create form
-            'subcategory' => 'nullable|string',  // For create form
-            'category_id' => 'nullable|exists:categories,id',  // For edit form
-            'sub_category_id' => 'nullable|exists:sub_categories,id',  // For edit form
-            'price' => 'required|numeric|min:0',
-            // Changed validation for 'stock' to be numeric, assuming it's the actual quantity
-            'stock' => 'nullable|integer|min:0',
-            'quantity' => 'nullable|integer|min:0', // Keeping this if it's still used for string status
-            'product_image' => 'nullable|image|max:2048',
+            'product_name'   => 'required|string|max:255',
+            'sku'            => 'nullable|string|max:100',
+            'description'    => 'nullable|string',
+            'category'       => 'required|string',
+            'subcategory'    => 'nullable|string',
+            'category_id'    => 'nullable|exists:categories,id',
+            'sub_category_id'=> 'nullable|exists:sub_categories,id',
+            'price'          => 'required|numeric|min:0',
+            'quantity'       => 'nullable|integer|min:0',
+            'product_image'  => 'nullable|image|max:2048',
         ]);
 
-        // Handle image upload
         $imagePath = null;
         if ($request->hasFile('product_image')) {
             $imagePath = $request->file('product_image')->store('product_images', 'public');
         }
 
-        // Handle different field names for create vs edit
-        $categoryName = $validated['category'] ?? null;
-        $subcategoryName = $validated['subcategory'] ?? null;
-        // If 'stock' is numeric input, use it. If 'stock_status' is a string from a form, use it.
-        // Assuming 'stock' (numeric) is the primary source for actual stock level.
-        $actualStockQuantity = $validated['stock'] ?? null;
-        // If you need to store a string representation of stock status in 'stock_status' column
-        // based on the numeric quantity, you would add logic here.
-        // For example:
-        // if ($actualStockQuantity !== null) {
-        //     if ($actualStockQuantity === 0) {
-        //         $stockStatusString = 'Out of Stock';
-        //     } elseif ($actualStockQuantity <= 10) {
-        //         $stockStatusString = 'Low Stock';
-        //     } else {
-        //         $stockStatusString = 'In Stock';
-        //     }
-        // } else {
-        //     $stockStatusString = null; // Or some default
-        // }
+        $category = Category::firstOrCreate(['name' => $validated['category']]);
 
-
-        // Find or create category
-        $category = null;
-        if ($categoryName) {
-            $category = Category::firstOrCreate(['name' => $categoryName]);
-        } elseif ($validated['category_id'] ?? null) {
-            $category = Category::find($validated['category_id']);
-        }
-
-        // Find or create subcategory if provided
         $subCategory = null;
-        if ($subcategoryName && $category) {
+        if ($validated['subcategory'] ?? null) {
             $subCategory = SubCategory::firstOrCreate([
-                'name' => $subcategoryName,
-                'category_id' => $category->id
+                'name'        => $validated['subcategory'],
+                'category_id' => $category->id,
             ]);
-        } elseif ($validated['sub_category_id'] ?? null) {
-            $subCategory = SubCategory::find($validated['sub_category_id']);
         }
 
         Product::create([
-            'name' => $validated['product_name'],
-            'sku' => $validated['sku'],
-            'description' => $validated['description'],
-            'category_id' => $category ? $category->id : null,
-            'sub_category_id' => $subCategory ? $subCategory->id : null,
-            'price' => $validated['price'],
-            //'stock_status' => $actualStockQuantity, // Store the numeric stock quantity here
-            'quantity' => $validated['quantity'],
-            'image_path' => $imagePath,
+            'name'            => $validated['product_name'],
+            'sku'             => $validated['sku'] ?? null,
+            'description'     => $validated['description'] ?? null,
+            'category_id'     => $category->id,
+            'sub_category_id' => $subCategory?->id,
+            'price'           => $validated['price'],
+            'quantity'        => $validated['quantity'] ?? 0,
+            'image_path'      => $imagePath,
         ]);
 
         return redirect()->route('products.index')->with('success', 'Product created successfully.');
@@ -200,66 +165,51 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         $validated = $request->validate([
-            'product_name' => 'required|string|max:255',
-            'sku' => 'nullable|string|max:100',
-            'description' => 'nullable|string',
-            'category' => 'nullable|string',  // For create form
-            'subcategory' => 'nullable|string',  // For create form
-            'category_id' => 'nullable|exists:categories,id',  // For edit form
-            'sub_category_id' => 'nullable|exists:sub_categories,id',  // For edit form
-            'price' => 'required|numeric|min:0',
-            // Changed validation for 'stock' to be numeric, assuming it's the actual quantity
-            'quantity' => 'nullable|integer|min:0',
-            //'stock_status' might not be directly from input if 'stock' is numeric
-            //'stock_status' => 'nullable|string', // Keeping this if it's still used for string status
-            'product_image' => 'nullable|image|max:2048',
+            'product_name'   => 'required|string|max:255',
+            'sku'            => 'nullable|string|max:100',
+            'description'    => 'nullable|string',
+            'category'       => 'nullable|string',
+            'subcategory'    => 'nullable|string',
+            'category_id'    => 'nullable|exists:categories,id',
+            'sub_category_id'=> 'nullable|exists:sub_categories,id',
+            'price'          => 'required|numeric|min:0',
+            'quantity'       => 'nullable|integer|min:0',
+            'product_image'  => 'nullable|image|max:2048',
         ]);
 
-        // Handle image upload
         if ($request->hasFile('product_image')) {
-            // Delete old image if it exists
             if ($product->image_path && file_exists(storage_path('app/public/' . $product->image_path))) {
                 unlink(storage_path('app/public/' . $product->image_path));
             }
-
-            $imagePath = $request->file('product_image')->store('product_images', 'public');
-            $validated['image_path'] = $imagePath;
+            $validated['image_path'] = $request->file('product_image')->store('product_images', 'public');
         }
 
-        // Handle different field names for create vs edit
-        $categoryName = $validated['category'] ?? null;
-        $subcategoryName = $validated['subcategory'] ?? null;
-        $actualStockQuantity = $validated['stock'] ?? null; // Use actual numeric stock
-
-        // Find or create category
         $category = null;
-        if ($categoryName) {
-            $category = Category::firstOrCreate(['name' => $categoryName]);
+        if ($validated['category'] ?? null) {
+            $category = Category::firstOrCreate(['name' => $validated['category']]);
         } elseif ($validated['category_id'] ?? null) {
             $category = Category::find($validated['category_id']);
         }
 
-        // Find or create subcategory if provided
         $subCategory = null;
-        if ($subcategoryName && $category) {
+        if (($validated['subcategory'] ?? null) && $category) {
             $subCategory = SubCategory::firstOrCreate([
-                'name' => $subcategoryName,
-                'category_id' => $category->id
+                'name'        => $validated['subcategory'],
+                'category_id' => $category->id,
             ]);
         } elseif ($validated['sub_category_id'] ?? null) {
             $subCategory = SubCategory::find($validated['sub_category_id']);
         }
 
         $product->update([
-            'name' => $validated['product_name'],
-            'sku' => $validated['sku'] ?? $product->sku,
-            'description' => $validated['description'] ?? $product->description,
-            'category_id' => $category ? $category->id : $product->category_id,
+            'name'            => $validated['product_name'],
+            'sku'             => $validated['sku'] ?? $product->sku,
+            'description'     => $validated['description'] ?? $product->description,
+            'category_id'     => $category ? $category->id : $product->category_id,
             'sub_category_id' => $subCategory ? $subCategory->id : $product->sub_category_id,
-            'price' => $validated['price'],
-            'quantity' => $validated['quantity'],
-            //'stock_status' => $actualStockQuantity ?? $product->stock_status, // Update with numeric stock quantity
-            'image_path' => $validated['image_path'] ?? $product->image_path,
+            'price'           => $validated['price'],
+            'quantity'        => $validated['quantity'] ?? $product->quantity,
+            'image_path'      => $validated['image_path'] ?? $product->image_path,
         ]);
 
         return redirect()->route('products.index')->with('success', 'Product updated successfully.');
