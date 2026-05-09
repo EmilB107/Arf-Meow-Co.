@@ -26,7 +26,7 @@
                     @csrf
                     @if ($errors->any())
                         <div class="alert alert-danger">
-                            <ul>
+                            <ul class="mb-0 text-start">
                                 @foreach ($errors->all() as $error)
                                     <li>{{ $error }}</li>
                                 @endforeach
@@ -34,7 +34,7 @@
                         </div>
                     @endif
                     <div>
-                        <input type="text" name="username" class="form-control rounded-5 mb-3" placeholder="Username" required value="{{ old('username') }}">
+                        <input type="email" name="email" class="form-control rounded-5 mb-3" placeholder="Email" required value="{{ old('email') }}">
                     </div>
                     <div>
                         <input type="password" name="password" class="form-control rounded-5 mb-4" placeholder="Password" required>

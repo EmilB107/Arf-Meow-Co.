@@ -36,7 +36,7 @@
                     @endif
 
                     <div>
-                        <input type="text" name="username" class="form-control rounded-5 mb-3" placeholder="Username" value="{{ old('username') }}" required>
+                        <input type="text" name="name" class="form-control rounded-5 mb-3" placeholder="Name" value="{{ old('name') }}" required>
                     </div>
                     <div>
                         <input type="email" name="email" class="form-control rounded-5 mb-3" placeholder="Email" value="{{ old('email') }}" required>
