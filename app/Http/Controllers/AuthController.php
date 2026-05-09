@@ -20,7 +20,13 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials, $request->boolean('remember'))) {
             $request->session()->regenerate(); // prevents session fixation attacks
-            return redirect()->intended('/dashboard')->with('success', 'Logged in successfully!');
+
+            $role = Auth::user()->role->name ?? null;
+
+            return match($role) {
+                'Super Admin' => redirect()->route('superadmin.index'),
+                default       => redirect()->route('dashboard'),
+            };
         }
 
         throw ValidationException::withMessages([

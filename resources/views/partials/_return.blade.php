@@ -1,4 +1,6 @@
-<div class="return d-flex">
-    <img src="{{ asset('images/return.png') }}" alt="Return">
-    <a href="{{ route($route) }}">Return</a>
+<div class="return">
+    <a href="{{ route($route) }}" class="d-flex align-items-center">
+        <img src="{{ asset('images/return.png') }}" alt="Return">
+        Return
+    </a>
 </div>
