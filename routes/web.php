@@ -35,6 +35,7 @@ Route::get('/login', function () {
 })->name('login'); // This is the primary login route name
 
 Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
 Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');

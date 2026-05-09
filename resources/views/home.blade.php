@@ -17,8 +17,12 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             @include('partials._brand')
-            <div class="d-flex">
-                <a href="{{ route('login') }}">Sign In</a>
+            <div class="d-flex align-items-center">
+                @auth
+                    <a href="{{ route('dashboard') }}">Dashboard</a>
+                @else
+                    <a href="{{ route('login') }}">Sign In</a>
+                @endauth
             </div>
         </div>
     </nav>

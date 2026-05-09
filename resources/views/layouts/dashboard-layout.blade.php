@@ -19,8 +19,10 @@
         <div class="container">
             @include('partials._brand')
             <div class="d-flex align-items-center">
-                {{-- palitan nlng para sa authentication --}}
-                <a class="d-block me-4" href="{{ route('home') }}">Sign Out</a>
+                <form action="{{ route('logout') }}" method="POST" class="d-inline me-4">
+                    @csrf
+                    <button type="submit" class="btn p-0 border-0 bg-transparent text-white fw-bold">Sign Out</button>
+                </form>
                 <div class="me-2">
                     <img src="{{ asset('images/pic.png') }}" alt="User Image" width="30">
                     <p class="username text-center fw-bold">PM</p>
