@@ -48,7 +48,8 @@ nav a {
     transition: color 0.2s ease;
 }
 
-nav .d-flex a:hover {
+nav .d-flex a:hover,
+nav .d-flex button:hover {
     opacity: 0.75;
 }
 
@@ -538,6 +539,11 @@ footer a:hover img {
 .icon-col .icon {
     width: 12px;
     height: auto;
+    transition: opacity 0.2s ease;
+}
+
+.icon-col a:hover .icon {
+    opacity: 0.65;
 }
 
 .add-btn {
