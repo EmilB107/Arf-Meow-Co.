@@ -184,16 +184,8 @@ The value starts with `base64:`.
 
 ### 4. Trigger a deploy
 
-Click **Manual Deploy → Deploy latest commit** if one hasn't started automatically.
+Click **Manual Deploy → Deploy latest commit** if one hasn't started automatically. After this, every push to `main` redeploys automatically.
 
-### 5. Seed the database
-
-Once deployed, open your web service → **Shell** and run:
-
-```bash
-php artisan db:seed
-```
-
-This creates the default Super Admin, Admin, and Project Manager accounts.
+The app seeds the database on startup — default accounts are created on first boot.
 
 > **Note:** If Render's free PostgreSQL tier is unavailable, create a free database at [neon.tech](https://neon.tech) and set `DB_HOST`, `DB_PORT`, `DB_DATABASE`, `DB_USERNAME`, and `DB_PASSWORD` manually in the Render dashboard.
