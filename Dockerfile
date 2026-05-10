@@ -34,4 +34,5 @@ CMD php artisan config:cache \
     && php artisan view:cache \
     && php artisan storage:link --force \
     && php artisan migrate --force \
+    && php artisan db:seed --force \
     && apache2-foreground

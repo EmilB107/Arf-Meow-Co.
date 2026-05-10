@@ -19,28 +19,19 @@ class UserSeeder extends Seeder
         $AdminRole = Role::where('name', 'Admin')->first();
         $PMRole = Role::where('name', 'Project Manager')->first();
 
-        User::create([
-            'name' => 'Super Admin User',
-            'email' => 'superadmin@example.com',
-            'email_verified_at' => now(), 
-            'password' => Hash::make('password'), 
-            'role_id' => $SuperAdminRole->id,
-        ]);
-        
-        User::create([
-            'name' => 'Admin User',
-            'email' => 'admin@example.com',
-            'email_verified_at' => now(),
-            'password' => Hash::make('password'), 
-            'role_id' => $AdminRole->id,
-        ]);
+        User::firstOrCreate(
+            ['email' => 'superadmin@example.com'],
+            ['name' => 'Super Admin User', 'email_verified_at' => now(), 'password' => Hash::make('password'), 'role_id' => $SuperAdminRole->id]
+        );
 
-        User::create([
-            'name' => 'PM User',
-            'email' => 'PM@example.com',
-            'email_verified_at' => now(),
-            'password' => Hash::make('password'),
-            'role_id' => $PMRole->id,
-        ]);
+        User::firstOrCreate(
+            ['email' => 'admin@example.com'],
+            ['name' => 'Admin User', 'email_verified_at' => now(), 'password' => Hash::make('password'), 'role_id' => $AdminRole->id]
+        );
+
+        User::firstOrCreate(
+            ['email' => 'PM@example.com'],
+            ['name' => 'PM User', 'email_verified_at' => now(), 'password' => Hash::make('password'), 'role_id' => $PMRole->id]
+        );
     }
 }
