@@ -13,7 +13,7 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        Category::create(['name' => 'Dog Supplies']);
-        Category::create(['name' => 'Cat Supplies']);
+        Category::firstOrCreate(['name' => 'Dog Supplies']);
+        Category::firstOrCreate(['name' => 'Cat Supplies']);
     }
 }

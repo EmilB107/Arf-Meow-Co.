@@ -19,41 +19,17 @@ class SubCategorySeeder extends Seeder
         $catsCategory = Category::where('name', 'Cat Supplies')->first();
 
         if ($dogsCategory) {
-            SubCategory::create([
-                'category_id' => $dogsCategory->id,
-                'name' => 'Dry Food'
-            ]);
-            SubCategory::create([
-                'category_id' => $dogsCategory->id,
-                'name' => 'Wet Food'
-            ]);
-            SubCategory::create([
-                'category_id' => $dogsCategory->id,
-                'name' => 'Toy'
-            ]);
-            SubCategory::create([
-                'category_id' => $dogsCategory->id,
-                'name' => 'Vitamins'
-            ]);
+            SubCategory::firstOrCreate(['category_id' => $dogsCategory->id, 'name' => 'Dry Food']);
+            SubCategory::firstOrCreate(['category_id' => $dogsCategory->id, 'name' => 'Wet Food']);
+            SubCategory::firstOrCreate(['category_id' => $dogsCategory->id, 'name' => 'Toy']);
+            SubCategory::firstOrCreate(['category_id' => $dogsCategory->id, 'name' => 'Vitamins']);
         }
 
         if ($catsCategory) {
-            SubCategory::create([
-                'category_id' => $catsCategory->id,
-                'name' => 'Dry Food'
-            ]);
-            SubCategory::create([
-                'category_id' => $catsCategory->id,
-                'name' => 'Wet Food'
-            ]);
-            SubCategory::create([
-                'category_id' => $catsCategory->id,
-                'name' => 'Toy'
-            ]);
-            SubCategory::create([
-                'category_id' => $catsCategory->id,
-                'name' => 'Litter'
-            ]);
+            SubCategory::firstOrCreate(['category_id' => $catsCategory->id, 'name' => 'Dry Food']);
+            SubCategory::firstOrCreate(['category_id' => $catsCategory->id, 'name' => 'Wet Food']);
+            SubCategory::firstOrCreate(['category_id' => $catsCategory->id, 'name' => 'Toy']);
+            SubCategory::firstOrCreate(['category_id' => $catsCategory->id, 'name' => 'Litter']);
         }
     }
 }
