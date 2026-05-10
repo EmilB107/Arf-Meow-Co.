@@ -1,0 +1,45 @@
+services:
+  - type: web
+    name: arf-meow-catalog
+    env: docker
+    plan: free
+    port: 80
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      - key: APP_KEY
+        sync: false
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: DB_HOST
+        fromDatabase:
+          name: arf-meow-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: arf-meow-db
+          property: port
+      - key: DB_DATABASE
+        fromDatabase:
+          name: arf-meow-db
+          property: database
+      - key: DB_USERNAME
+        fromDatabase:
+          name: arf-meow-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: arf-meow-db
+          property: password
+      - key: SESSION_DRIVER
+        value: cookie
+      - key: CACHE_STORE
+        value: array
+
+databases:
+  - name: arf-meow-db
+    plan: free
+    databaseName: arf_meow
+    user: arf_meow_user

@@ -1,7 +1,5 @@
 # Arf & Meow Co. — Product Catalog
 
-> **TODO:** Deploy to [Render](https://render.com) (free tier — sleeps after 15min inactivity, ~30s cold start).
-
 A Laravel 12 product catalog management system with role-based access control for Super Admins, Admins, and Project Managers.
 
 ## Prerequisites
@@ -161,3 +159,41 @@ After seeding, you can log in with these accounts:
 | Delete products        |     Yes     |  Yes  |       No        |
 | Manage categories      |     Yes     |  Yes  |       No        |
 | Manage users           |     Yes     |  No   |       No        |
+
+## Deploying to Render
+
+> **Note:** The free tier web service sleeps after 15 minutes of inactivity and takes ~30 seconds to wake on the next request. Uploaded product images do not persist across deploys (ephemeral filesystem).
+
+### 1. Connect your repository
+
+Create a [Render](https://render.com) account and connect your GitHub repository.
+
+### 2. Deploy via Blueprint
+
+In the Render dashboard click **New → Blueprint**, select your repo, and confirm. Render reads `render.yaml` and creates the web service and PostgreSQL database automatically.
+
+### 3. Set the app key
+
+Go to your web service → **Environment** and add:
+
+```
+APP_KEY=<paste the value from your local .env>
+```
+
+The value starts with `base64:`.
+
+### 4. Trigger a deploy
+
+Click **Manual Deploy → Deploy latest commit** if one hasn't started automatically.
+
+### 5. Seed the database
+
+Once deployed, open your web service → **Shell** and run:
+
+```bash
+php artisan db:seed
+```
+
+This creates the default Super Admin, Admin, and Project Manager accounts.
+
+> **Note:** If Render's free PostgreSQL tier is unavailable, create a free database at [neon.tech](https://neon.tech) and set `DB_HOST`, `DB_PORT`, `DB_DATABASE`, `DB_USERNAME`, and `DB_PASSWORD` manually in the Render dashboard.
