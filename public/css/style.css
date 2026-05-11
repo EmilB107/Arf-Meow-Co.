@@ -225,7 +225,6 @@ nav img {
     border: max(3px, calc(1.36px + 0.43cqi)) solid var(--color-border);
     border-radius: max(1.5rem, calc(1.171rem + 1.384cqi));
     padding: max(0px, calc(-0.164rem + 0.692cqi)) clamp(8px, calc(21.3px - 0.865cqi), 18px);
-    margin-inline: max(0px, calc(-0.394rem + 1.661cqi));
 }
 
 .featured .card img {

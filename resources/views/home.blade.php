@@ -74,44 +74,52 @@
         </div>
     </section>
     <section class="container-fluid mt-4 pb-5 featured text-center">
-        <div class="row justify-content-center gy-4">
+        <div class="row justify-content-center g-4">
             <h2 class="mt-4">Featured <span class="d-block">Products</span></h2>
-            <div class="col-8 col-sm-6 col-lg-3 card g-4">
-                <img class="p-4" src="{{ asset('images/turkey_hat.png') }}" alt="Featured Dog">
-                <h3>Cat Turkey Hat</h3>
-                <p class="desc mx-3">Dress your feline in festive flair with this adorable Turkey Hat for Cats!</p>
-                <p class="price">P 190.00</p>
-                <p class="stock">In Stock</p>
-                <a class="mb-3 mx-auto" href="">Shop Now</a>
+            <div class="col-8 col-sm-6 col-xl-3">
+                <div class="card h-100">
+                    <img class="p-4" src="{{ asset('images/turkey_hat.png') }}" alt="Featured Dog">
+                    <h3>Cat Turkey Hat</h3>
+                    <p class="desc mx-3">Dress your feline in festive flair with this adorable Turkey Hat for Cats!</p>
+                    <p class="price">P 190.00</p>
+                    <p class="stock">In Stock</p>
+                    <a class="mb-3 mx-auto" href="">Shop Now</a>
+                </div>
             </div>
-            <div class="col-8 col-sm-6 col-lg-3 card g-4">
-                <img class="p-4" src="{{ asset('images/fish_hat.png') }}" alt="Featured Dog">
-                <h3>Cat Fish Hat</h3>
-                <p class="desc mx-3">Turn your cat into the cutest catch of the day with this whimsical Fish Hat
-                    for Cats!
-                </p>
-                <p class="price">P 190.00</p>
-                <p class="stock">In Stock</p>
-                <a class="mb-3 mx-auto" href="">Shop Now</a>
+            <div class="col-8 col-sm-6 col-xl-3">
+                <div class="card h-100">
+                    <img class="p-4" src="{{ asset('images/fish_hat.png') }}" alt="Featured Dog">
+                    <h3>Cat Fish Hat</h3>
+                    <p class="desc mx-3">Turn your cat into the cutest catch of the day with this whimsical Fish Hat
+                        for Cats!
+                    </p>
+                    <p class="price">P 190.00</p>
+                    <p class="stock">In Stock</p>
+                    <a class="mb-3 mx-auto" href="">Shop Now</a>
+                </div>
             </div>
-            <div class="col-8 col-sm-6 col-lg-3 card g-4">
-                <img class="p-4" src="{{ asset('images/tower_gray.png') }}" alt="Featured Dog">
-                <h3>Cat Tower Gray</h3>
-                <p class="desc mx-3">Give your cat the perfect space to rest and play with this durable Cat Tree!
-                </p>
-                <p class="price">P 7,000.00</p>
-                <p class="stock">In Stock</p>
-                <a class="mb-3 mx-auto" href="">Shop Now</a>
+            <div class="col-8 col-sm-6 col-xl-3">
+                <div class="card h-100">
+                    <img class="p-4" src="{{ asset('images/tower_gray.png') }}" alt="Featured Dog">
+                    <h3>Cat Tower Gray</h3>
+                    <p class="desc mx-3">Give your cat the perfect space to rest and play with this durable Cat Tree!
+                    </p>
+                    <p class="price">P 7,000.00</p>
+                    <p class="stock">In Stock</p>
+                    <a class="mb-3 mx-auto" href="">Shop Now</a>
+                </div>
             </div>
-            <div class="col-8 col-sm-6 col-lg-3 card g-4">
-                <img class="p-4" src="{{ asset('images/sunglasses.png') }}" alt="Featured Dog">
-                <h3>Stylish Pet Sunglasses</h3>
-                <p class="desc mx-3">Keep your furry friend looking cool and protected with these Stylish Pet
-                    Sunglasses!
-                </p>
-                <p class="price">P 180.00</p>
-                <p class="stock">In Stock</p>
-                <a class="mb-3 mx-auto" href="">Shop Now</a>
+            <div class="col-8 col-sm-6 col-xl-3">
+                <div class="card h-100">
+                    <img class="p-4" src="{{ asset('images/sunglasses.png') }}" alt="Featured Dog">
+                    <h3>Stylish Pet Sunglasses</h3>
+                    <p class="desc mx-3">Keep your furry friend looking cool and protected with these Stylish Pet
+                        Sunglasses!
+                    </p>
+                    <p class="price">P 180.00</p>
+                    <p class="stock">In Stock</p>
+                    <a class="mb-3 mx-auto" href="">Shop Now</a>
+                </div>
             </div>
         </div>
     </section>
