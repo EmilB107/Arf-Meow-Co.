@@ -15,8 +15,8 @@
 
 <body>
     <div class="container-fluid signup mt-5">
-        <div class="row justify-content-center text-center">
-            <div class="col">
+        <div class="row justify-content-center text-center p-4">
+            <div class="col px-0">
                 <img src="{{ asset('images/signup.png') }}" alt="ARF &amp; MEOW CO. Logo">
                 <p class="comp-name mt-2">ARF &amp; MEOW CO.</p>
                 <h1>LOGIN</h1>
@@ -41,7 +41,7 @@
                     </div>
                     <button type="submit">Log In</button>
                 </form>
-                <p class="mt-3">Don't have an account? <a href="{{ route('auth.signup') }}">Sign Up</a></p>
+                <p class="mt-3 mb-0">Don't have an account? <a href="{{ route('auth.signup') }}">Sign Up</a></p>
             </div>
         </div>
     </div>

@@ -367,6 +367,15 @@ footer a:hover img {
     transform: translateY(-4px);
 }
 
+.signup .row {
+    width: clamp(300px, 39.1cqi, 600px);
+    border-radius: max(0px, calc(-0.329rem + 1.384cqi));
+    border: max(0px, calc(-2px + 0.260cqi)) solid var(--color-border);
+    padding-inline: max(0px, calc(-0.493rem + 2.076cqi));
+    padding-block-end: max(0px, calc(-0.493rem + 2.076cqi));
+    margin: 0 auto;
+}
+
 .signup img {
     width: 30%;
     height: auto;
@@ -375,32 +384,40 @@ footer a:hover img {
 .comp-name {
     font-family: "Baloo", sans-serif;
     color: var(--color-primary);
-    font-size: 0.8rem;
+    font-size: max(0.8rem, calc(0.652rem + 0.623cqi));
     font-weight: bold;
 }
 
 .signup h1 {
     font-family: "Baloo", sans-serif;
     color: var(--color-text-primary);
-    font-size: 1.25rem;
+    font-size: max(1.25rem, calc(1rem + 1.038cqi));
     font-weight: bold;
 }
 
 .sub {
     font-family: "Nunito", sans-serif;
     color: var(--color-text-primary);
-    font-size: 0.8rem;
+    font-size: max(0.8rem, calc(0.636rem + 0.692cqi));
+}
+
+.signup input[type="text"],
+.signup input[type="email"],
+.signup input[type="password"] {
+    font-size: clamp(0.9rem, calc(0.703rem + 0.830cqi), 1.1rem);
+    padding: max(8px, calc(5.37px + 0.692cqi)) max(12px, calc(8.056px + 1.038cqi));
+    margin: 0 auto;
 }
 
 .signup button {
     background-color: var(--color-accent);
     font-family: "Quicksand", sans-serif;
-    font-size: 0.8rem;
+    font-size: max(0.8rem, calc(0.668rem + 0.554cqi));
     font-weight: bold;
     color: white;
     border: none;
-    padding: 8px 32px;
-    border-radius: 8px;
+    padding: 8px max(32px, calc(21.482px + 2.768cqi));
+    border-radius: max(8px, calc(6.423px + 0.415cqi));
     cursor: pointer;
     display: block;
     margin: 10px auto;
@@ -960,47 +977,6 @@ footer a:hover img {
 @media (min-width: 1536px) {
     footer .connect {
         text-align: end;
-    }
-
-    .signup .row {
-        width: 800px;
-        border-radius: 1rem;
-        border: 2px solid var(--color-border);
-        padding: 1.5rem;
-        margin: 0 auto;
-    }
-
-    .signup img {
-        width: 30%;
-        height: auto;
-    }
-
-    .comp-name {
-        font-size: 1.25rem;
-    }
-
-    .signup h1 {
-        font-size: 2rem;
-    }
-
-    .sub {
-        font-size: 1.3rem;
-    }
-
-    .signup input[type="text"],
-    .signup input[type="email"],
-    .signup input[type="password"] {
-        max-width: 80%;
-        font-size: 1.5rem;
-        padding: 1rem 1.5rem;
-        height: 3rem;
-        margin: 0 auto;
-    }
-
-    .signup button {
-        font-size: 1.2rem;
-        padding: 0.6rem 4rem;
-        border-radius: 0.8rem;
     }
 
     .sidebar {
