@@ -43,33 +43,37 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 // ==========================
 Route::middleware('auth')->group(function () {
 
-    // DASHBOARD — all roles
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    // DASHBOARD — Admin + Project Manager only
+    Route::middleware('role:Admin,Project Manager')->group(function () {
 
-    // PRODUCTS
-    // Static segments (create) must come before wildcards ({product}) to avoid capture
-    Route::get('/products', [ProductController::class, 'index'])->name('products.index');
-    Route::get('/products/create', [ProductController::class, 'create'])->name('products.create')->middleware('role:Super Admin,Admin');
-    Route::post('/products', [ProductController::class, 'store'])->name('products.store')->middleware('role:Super Admin,Admin');
-    Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
-    Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit')->middleware('role:Super Admin,Admin');
-    Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update')->middleware('role:Super Admin,Admin');
-    Route::patch('/products/{product}', [ProductController::class, 'update'])->middleware('role:Super Admin,Admin');
-    Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy')->middleware('role:Super Admin,Admin');
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-    // CATEGORIES — Super Admin + Admin only
-    Route::resource('categories', CategoriesController::class)
-        ->middleware('role:Super Admin,Admin');
+        // PRODUCTS
+        // Static segments (create) must come before wildcards ({product}) to avoid capture
+        Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+        Route::get('/products/create', [ProductController::class, 'create'])->name('products.create')->middleware('role:Admin');
+        Route::post('/products', [ProductController::class, 'store'])->name('products.store')->middleware('role:Admin');
+        Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
+        Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit')->middleware('role:Admin');
+        Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update')->middleware('role:Admin');
+        Route::patch('/products/{product}', [ProductController::class, 'update'])->middleware('role:Admin');
+        Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy')->middleware('role:Admin');
 
-    // INVENTORY — all roles
-    Route::get('/inventory', [InventoryController::class, 'index'])->name('inventory.index');
-    Route::get('/inventory/edit', [InventoryController::class, 'edit'])->name('inventory.edit');
-    Route::put('/inventory/{product}', [InventoryController::class, 'update'])->name('inventory.update');
+        // CATEGORIES — Admin only
+        Route::resource('categories', CategoriesController::class)
+            ->middleware('role:Admin');
 
-    // PRICES — all roles
-    Route::get('/prices', [PriceController::class, 'index'])->name('prices.index');
-    Route::get('/prices/{product}/edit', [PriceController::class, 'edit'])->name('prices.edit');
-    Route::post('/prices/{product}', [PriceController::class, 'update'])->name('prices.update');
+        // INVENTORY
+        Route::get('/inventory', [InventoryController::class, 'index'])->name('inventory.index');
+        Route::get('/inventory/edit', [InventoryController::class, 'edit'])->name('inventory.edit');
+        Route::put('/inventory/{product}', [InventoryController::class, 'update'])->name('inventory.update');
+
+        // PRICES
+        Route::get('/prices', [PriceController::class, 'index'])->name('prices.index');
+        Route::get('/prices/{product}/edit', [PriceController::class, 'edit'])->name('prices.edit');
+        Route::post('/prices/{product}', [PriceController::class, 'update'])->name('prices.update');
+
+    });
 
     // SUPER ADMIN — Super Admin only
     Route::middleware('role:Super Admin')->group(function () {

@@ -20,7 +20,11 @@
             @include('partials._brand')
             <div class="d-flex align-items-center">
                 @auth
-                    <a href="{{ route('dashboard') }}">Dashboard</a>
+                    @if(Auth::user()?->role?->name === 'Super Admin')
+                        <a href="{{ route('superadmin.index') }}">Dashboard</a>
+                    @else
+                        <a href="{{ route('dashboard') }}">Dashboard</a>
+                    @endif
                 @else
                     <a href="{{ route('login') }}">Sign In</a>
                 @endauth
