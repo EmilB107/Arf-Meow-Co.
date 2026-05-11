@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title', 'Arf & Meow Co.')</title>
+    <link rel="icon" type="image/png" href="{{ asset('images/paw.png') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <script defer src="{{ asset('js/sidenav.js') }}" ></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
