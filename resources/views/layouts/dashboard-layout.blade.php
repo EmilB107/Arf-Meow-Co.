@@ -20,10 +20,12 @@
         <div class="container">
             @include('partials._brand')
             <div class="d-flex align-items-center">
-                <form action="{{ route('logout') }}" method="POST" class="d-inline me-4">
-                    @csrf
-                    <button type="submit" class="btn p-0 border-0 bg-transparent text-white fw-bold">Sign Out</button>
-                </form>
+                <div class="me-4 d-flex align-items-center align-self-stretch">
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn p-0 border-0 bg-transparent text-white fw-bold">Sign Out</button>
+                    </form>
+                </div>
                 <div class="me-2 d-flex flex-column align-items-center">
                     <img src="{{ asset('images/pic.png') }}" alt="User Image" width="30">
                     <p class="username fw-bold">{{ Auth::user()?->name }}</p>
@@ -74,9 +76,10 @@
         </aside>
 
         <main class="main-content flex-grow-1 p-4">
-            @yield('content') <!-- Page-specific content will be injected here -->
+            @yield('content')
         </main>
     </div>
+    @include('partials._delete')
 </body>
 
 </html>

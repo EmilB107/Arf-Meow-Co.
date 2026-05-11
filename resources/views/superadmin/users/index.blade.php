@@ -1,4 +1,3 @@
-@include('partials._delete')
 @extends('layouts.superadmin-layout')
 
 @section('title', 'Users')
@@ -57,7 +56,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="mt-2 text-end">
+        <div class="mt-2 mb-5 text-end">
             <a href="{{ route('user.create') }}" role="button" class="add-btn">
                 Create User
             </a>

@@ -1,4 +1,3 @@
-@include('partials._delete')
 @extends('layouts.dashboard-layout')
 <script src="{{ asset('js/filter.js') }}"></script>
 

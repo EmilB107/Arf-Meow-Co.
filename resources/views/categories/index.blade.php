@@ -1,4 +1,3 @@
-@include('partials._delete')
 @extends('layouts.dashboard-layout')
 
 @section('title', 'Categories')

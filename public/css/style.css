@@ -430,8 +430,12 @@ footer a:hover img {
 .username {
     font-family: "Baloo", sans-serif;
     color: white;
-    font-size: 0.8rem;
+    font-size: max(0.625rem, 1.15cqi);
     margin: 0;
+}
+
+.d-nav button {
+    font-size: max(0.625rem, 1.25cqi);
 }
 
 .sidebar {
@@ -482,7 +486,7 @@ footer a:hover img {
 .main-content h2 {
     font-family: "Baloo", sans-serif;
     color: var(--color-text-primary);
-    font-size: 1rem;
+    font-size: max(1rem, calc(0.671rem + 1.384cqi));
     font-weight: bold;
 }
 
@@ -544,6 +548,23 @@ footer a:hover img {
     font-size: 0.575rem;
 }
 
+.admin-list .table {
+    min-width: 500px;
+    font-size: max(12px, calc(10.038px + 0.433cqi));
+}
+
+.admin-list .table-bordered th {
+    font-size: max(13px, calc(11.355px + 0.433cqi));
+}
+
+.admin-list .add-btn {
+    font-size: max(14px, calc(12.355px + 0.433cqi));
+}
+
+.admin-list .icon-col .icon {
+    width: max(16px, calc(13.370px + 0.692cqi));
+}
+
 .d-overview .table-bordered,
 .d-product .table-bordered,
 .d-category .table-bordered,
@@ -602,7 +623,7 @@ footer a:hover img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 8px;
+    gap: max(14px, calc(11.370px + 0.692cqi));
 }
 
 .icon-col .icon {
@@ -688,9 +709,9 @@ footer a:hover img {
 }
 
 .return img {
-    width: 24px;
-    height: auto;
-    margin-right: 8px;
+    width: auto;
+    height: max(24px, calc(18.741px + 1.384cqi));
+    margin-right: max(8px, calc(6.423px + 0.415cqi));
 }
 
 .return a {
@@ -699,7 +720,8 @@ footer a:hover img {
     color: var(--color-accent);
     text-decoration: none;
     font-family: "Quicksand", sans-serif;
-    font-size: 0.8rem;
+    font-size: max(0.8rem, calc(0.668rem + 0.554cqi));
+    margin-bottom: max(0px, calc(-0.099rem + 0.415cqi));
     transition: opacity 0.2s ease;
 }
 
@@ -932,11 +954,15 @@ footer a:hover img {
 }
 
 .sa-overview h1 {
-    margin-top: 1rem;
+    margin-top: max(1rem, calc(0.343rem + 2.768cqi));
+}
+
+.sa-overview h2 {
+    font-size: max(1rem, calc(0.343rem + 2.768cqi));
 }
 
 .sa-overview .buttons {
-    width: 120px;
+    width: max(120px, calc(80.552px + 10.381cqi));
     margin-bottom: 1rem;
     transition: transform 0.2s ease;
 }
@@ -946,23 +972,39 @@ footer a:hover img {
 }
 
 .sa-overview .card {
-    height: 120px;
+    height: auto;
     margin: 1rem 2rem;
+    border-radius: max(0.5rem, calc(0.007rem + 2.076cqi));
+    width: max(280px, calc(207.682px + 19.031cqi));
+    padding: max(0.5rem, calc(0.336rem + 0.692cqi));
+}
+
+.sa-overview .admin-title {
+    margin-top: max(0px, calc(-0.493rem + 2.076cqi));
+}
+
+.sa-overview .admin {
+    margin-top: max(0px, calc(-0.493rem + 2.076cqi));
 }
 
 .admin-img {
-    width: 50px;
+    width: max(50px, calc(33.565px + 4.325cqi));
     height: auto;
+    margin-top: max(0px, calc(-0.197rem + 0.830cqi));
+    margin-left: max(0px, calc(-0.164rem + 0.692cqi));
 }
 
 .pm-img {
     width: auto;
-    height: 45px;
+    height: max(45px, calc(28.565px + 4.325cqi));
+    margin-top: max(0px, calc(-0.197rem + 0.830cqi));
+    margin-left: max(0px, calc(-0.164rem + 0.692cqi));
 }
 
 .permission-col {
     width: 180px;
 }
+
 
 .tamad-baloo {
     font-family: "Baloo", sans-serif;
@@ -1009,11 +1051,6 @@ footer a:hover img {
     .menu-text {
         font-size: 1.3rem;
         margin-left: 0.8rem;
-    }
-
-    .main-content h1,
-    .main-content h2 {
-        font-size: 2rem;
     }
 
     .d-home h1,
@@ -1130,16 +1167,6 @@ footer a:hover img {
         border-radius: 8px;
     }
 
-    .return img {
-        width: auto;
-        height: 40px;
-        margin-right: 0.8rem;
-    }
-
-    .return a {
-        font-size: 1.2rem;
-        margin-bottom: 0.3rem;
-    }
 
     .crud-card {
         border-radius: 2rem;
@@ -1290,45 +1317,4 @@ footer a:hover img {
         font-size: 2rem;
     }
 
-    .sa-overview h1 {
-        margin-top: 3rem;
-    }
-
-    .sa-overview h2 {
-        font-size: 3rem;
-    }
-
-    .sa-overview .card {
-        border-radius: 2rem;
-        width: 500px;
-        height: auto;
-        margin: 1rem 2rem;
-        padding: 1rem;
-    }
-
-    .admin-img {
-        width: 100px;
-        height: auto;
-        margin-top: .6rem;
-        margin-left: .5rem;
-    }
-
-    .pm-img {
-        width: auto;
-        height: 95px;
-        margin-top: .6rem;
-        margin-left: .5rem;
-    }
-
-    .sa-overview .buttons {
-        width: 240px;
-    }
-
-    .sa-overview .admin-title {
-        margin-top: 1.5rem;
-    }
-
-    .sa-overview .admin {
-        margin-top: 1.5rem;
-    }
 }
