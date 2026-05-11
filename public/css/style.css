@@ -166,11 +166,16 @@ nav img {
     padding: 0 clamp(0rem, calc(-3.94rem + 16.6cqi), 12rem) !important;
 }
 
+.product {
+    margin-top: calc(9.9px - 2.6cqi);
+    margin-bottom: max(0px, calc(-0.822rem + 3.46cqi));
+}
+
 .product h2 {
     text-align: center;
     color: var(--color-text-primary);
     font-family: "Baloo", sans-serif;
-    font-size: 1rem;
+    font-size: clamp(1rem, calc(-0.116rem + 4.7cqi), 3rem);
     text-transform: uppercase;
     font-weight: bold;
     margin-top: 0.5rem;
@@ -181,21 +186,22 @@ nav img {
 }
 
 .product img {
-    width: 75%;
+    width: clamp(40%, calc(86.5% - 3.03cqi), 75%);
     height: auto;
 }
 
 .product h3 {
     font-family: "Nunito", sans-serif;
     color: var(--color-primary);
-    font-size: 0.8rem;
+    font-size: clamp(0.8rem, calc(0.307rem + 2.076cqi), 1.25rem);
+    font-weight: bold;
 }
 
 .product p {
     font-family: "Nunito", sans-serif;
     color: var(--color-text-primary);
-    font-size: 0.675rem;
-    padding-top: 6px;
+    font-size: clamp(0.575rem, 1.9cqi, 1rem);
+    padding: 6px max(0px, calc(-2.629rem + 11.07cqi));
 }
 
 .featured {
@@ -205,7 +211,7 @@ nav img {
 .featured h2 {
     color: white;
     font-family: "Baloo", sans-serif;
-    font-size: 1rem;
+    font-size: clamp(1rem, calc(-0.116rem + 4.7cqi), 3rem);
     font-weight: bold;
     text-transform: uppercase;
 }
@@ -216,9 +222,10 @@ nav img {
 
 .featured .card {
     background-color: white;
-    border: 3px solid var(--color-border);
-    border-radius: 1.5rem;
-    padding: 0 18px;
+    border: max(3px, calc(1.36px + 0.43cqi)) solid var(--color-border);
+    border-radius: max(1.5rem, calc(1.171rem + 1.384cqi));
+    padding: max(0px, calc(-0.164rem + 0.692cqi)) clamp(8px, calc(21.3px - 0.865cqi), 18px);
+    margin-inline: max(0px, calc(-0.394rem + 1.661cqi));
 }
 
 .featured .card img {
@@ -231,14 +238,14 @@ nav img {
 .featured .price {
     font-family: "Balooo", sans-serif;
     font-weight: bold;
-    font-size: 0.8rem;
+    font-size: clamp(0.8rem, calc(0.307rem + 2.076cqi), 1.25rem);
     color: var(--color-text-primary);
 }
 
 .featured .desc,
 .featured .stock {
     font-family: "Nunito", sans-serif;
-    font-size: 0.675rem;
+    font-size: clamp(0.675rem, 1.9cqi, 1rem);
 }
 
 .featured .desc {
@@ -246,25 +253,27 @@ nav img {
 }
 
 .featured .price {
-    font-size: 0.75rem;
+    font-size: clamp(0.75rem, 1.9cqi, 1rem);
 }
 
 .featured .stock {
     color: var(--color-accent);
+    margin-top: auto;
 }
 
 .featured a {
     display: inline;
-    padding: 8px 24px;
+    padding: 8px max(24px, calc(21.37px + 0.692cqi));
     width: fit-content;
     font-family: "Quicksand", sans-serif;
-    font-size: 0.9rem;
+    font-size: clamp(0.9rem, 2.3cqi, 1.25rem);
     font-weight: bold;
     background-color: var(--color-accent);
     color: white;
     text-decoration: none;
-    border-radius: 18px;
+    border-radius: max(18px, calc(8.14px + 2.595cqi));
     text-align: center;
+    margin-top: auto;
 }
 
 .featured a:hover {
@@ -275,40 +284,41 @@ nav img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 350px;
-    margin: 1.5rem auto;
+    width: clamp(350px, calc(267.8px + 21.63cqi), 600px);
+    margin: max(1.5rem, calc(1.171rem + 1.384cqi)) auto;
     padding: 0 0.8rem;
 }
 
 .form h2 {
     font-family: "Baloo", sans-serif;
     color: black;
-    font-size: 1rem;
+    font-size: max(1rem, calc(0.671rem + 1.384cqi));
     font-weight: bold;
+    margin-bottom: max(0px, calc(-0.657rem + 2.768cqi)) !important;
 }
 
 .form label {
     font-family: "Nunito", sans-serif;
-    font-size: 0.675rem;
+    font-size: max(0.675rem, calc(0.404rem + 1.142cqi));
 }
 
 .form input[type="text"],
 .form textarea {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid var(--color-border);
-    border-radius: 3px;
+    padding: max(10px, calc(6.71px + 0.865cqi));
+    margin-bottom: max(10px, calc(8.36px + 0.433cqi));
+    border: max(1px, calc(0.343px + 0.173cqi)) solid var(--color-border);
+    border-radius: max(3px, calc(1.355px + 0.433cqi));
 }
 
 .form button {
     background-color: var(--color-accent);
-    font-size: 0.8rem;
+    font-size: max(0.8rem, calc(0.570rem + 0.969cqi));
     font-weight: bold;
     color: white;
     border: none;
-    padding: 8px 24px;
-    border-radius: 18px;
+    padding: max(8px, calc(6.42px + 0.415cqi)) max(24px, calc(-0.637rem + 8.997cqi));
+    border-radius: max(18px, calc(13.4px + 1.211cqi));
     cursor: pointer;
     display: block;
     margin: 0 auto;
@@ -318,28 +328,40 @@ nav img {
     background-color: var(--color-accent-hover);
 }
 
+footer .row {
+    margin: 0 max(0px, calc(-0.986rem + 4.152cqi));
+}
+
 footer h2 {
     font-family: "Baloo", sans-serif;
     color: var(--color-text-primary);
-    font-size: 1.25rem;
+    font-size: max(1.25rem, calc(0.510rem + 3.114cqi));
     font-weight: bold;
 }
 
 footer .credits {
     font-family: "Nunito", sans-serif;
     color: var(--color-text-secondary);
-    font-size: 0.525rem;
+    font-size: max(0.525rem, calc(0.270rem + 1.073cqi));
 }
 
 footer .connect {
     text-align: center;
-    font-size: 0.7rem;
+    font-size: max(0.7rem, calc(0.273rem + 1.799cqi));
+    margin-right: max(0px, calc(-0.986rem + 4.152cqi));
 }
 
 footer a img {
-    width: 12px;
+    width: max(12px, calc(2.796px + 2.422cqi));
     margin: 0;
     transition: transform 0.2s ease;
+}
+
+.footer-img {
+    display: block;
+    width: clamp(0px, 84.6cqi, 1300px) !important;
+    height: auto;
+    margin: calc(6.57px - 1.73cqi) auto 0;
 }
 
 footer a:hover img {
@@ -937,127 +959,8 @@ footer a:hover img {
 /* RESPONSIVENESS */
 
 @media (min-width: 1536px) {
-    .product {
-        margin-top: -30px; /* dko mafigure out san yung margin sa know-us section lol*/
-        margin-bottom: 2.5rem;
-    }
-
-    .product h2 {
-        font-size: 5.3rem;
-    }
-
-    .product img {
-        width: 55%;
-    }
-
-    .product h3 {
-        font-size: 2.3rem;
-        font-weight: bold;
-    }
-
-    .product p {
-        font-size: 1.5rem;
-        padding: 0.3rem 8rem;
-    }
-
-    .featured h2 {
-        font-size: 5.5rem;
-    }
-
-    .featured .card {
-        width: 320px;
-        height: auto;
-        border: 8px solid var(--color-border);
-        border-radius: 2.5rem;
-        padding: 0.5rem 0.5rem;
-        margin: 1rem 1.2rem;
-    }
-
-    .featured .card img {
-        width: 85%;
-    }
-
-    .featured h3 {
-        font-size: 1.5rem;
-    }
-
-    .featured .desc {
-        font-size: 1.2rem;
-    }
-
-    .featured .price {
-        font-size: 1.4rem;
-    }
-
-    .featured .stock {
-        font-size: 1.4rem;
-        margin-top: auto;
-    }
-
-    .featured a {
-        padding: 0.5rem 2rem;
-        font-size: 1.5rem;
-        border-radius: 3rem;
-        margin-top: auto;
-    }
-
-    .form {
-        width: 600px;
-        margin: 2.5rem auto;
-    }
-
-    .form h2 {
-        font-size: 2rem;
-        margin-bottom: 2rem !important;
-    }
-
-    .form label {
-        font-size: 1.5rem;
-    }
-
-    .form input[type="text"],
-    .form textarea {
-        padding: 20px;
-        margin-bottom: 15px;
-        border: 3px solid var(--color-border);
-        border-radius: 8px;
-    }
-
-    .form button {
-        font-size: 1.5rem;
-        padding: 0.8rem 8rem;
-        border-radius: 2rem;
-    }
-
-    footer .row {
-        margin: 0 3rem;
-    }
-
-    footer h2 {
-        font-size: 3.5rem;
-        font-weight: bold;
-    }
-
-    footer .credits {
-        font-size: 1.3rem;
-    }
-
     footer .connect {
         text-align: end;
-        font-size: 2rem;
-        margin-right: 3rem;
-    }
-
-    footer a img {
-        width: 40px;
-    }
-
-    .footer-img {
-        display: block;
-        width: 1300px !important;
-        height: auto;
-        margin: 0 auto;
-        margin-top: -20px;
     }
 
     .signup .row {
