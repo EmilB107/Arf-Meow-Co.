@@ -438,11 +438,20 @@ footer a:hover img {
     font-size: max(0.625rem, 1.25cqi);
 }
 
+body:has(.d-nav) {
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+}
+
+body:has(.d-nav) > .d-flex {
+    flex: 1;
+}
+
 .sidebar {
     flex-shrink: 0;
     background-color: #d3d3d3;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    height: 100vh;
     width: max(38px, calc(34.056px + 1.038cqi));
     transition: width 0.3s ease;
     overflow: hidden;
@@ -483,6 +492,10 @@ footer a:hover img {
     margin-left: max(0.5rem, calc(0.402rem + 0.415cqi));
 }
 
+.main-content {
+    min-width: 0;
+}
+
 .main-content h1,
 .main-content h2 {
     font-family: "Baloo", sans-serif;
@@ -491,27 +504,43 @@ footer a:hover img {
     font-weight: bold;
 }
 
+.d-home h1,
+.d-overview h2 {
+    margin-left: max(0rem, calc(-1.644rem + 6.920cqi));
+    margin-bottom: max(0rem, calc(-0.657rem + 2.768cqi));
+}
+
 .d-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    row-gap: max(1rem, calc(0.014rem + 4.152cqi));
+    column-gap: max(1rem, calc(-2.616rem + 15.224cqi));
     width: fit-content;
+    margin: auto;
 }
 
 .d-item {
     border: 1px solid var(--color-text-primary);
     border-radius: 18px;
     padding: 1rem;
+    width: max(130px, calc(41.247px + 23.356cqi));
+    height: max(80px, calc(40.552px + 10.381cqi));
 }
 
 .d-home img {
-    height: 25px;
+    height: max(25px, calc(11.852px + 3.460cqi));
+    margin: auto 0;
+    margin-left: max(0rem, calc(-0.493rem + 2.076cqi));
+}
+
+.d-home .text {
+    margin: auto;
 }
 
 .d-home .num {
     font-family: "Baloo", sans-serif;
     color: var(--color-text-primary);
-    font-size: 0.8rem;
+    font-size: max(0.8rem, calc(0.077rem + 3.045cqi));
     font-weight: bold;
 }
 
@@ -519,7 +548,7 @@ footer a:hover img {
     display: block;
     font-family: "Nunito", sans-serif;
     color: var(--color-text-primary);
-    font-size: 0.675rem;
+    font-size: max(0.675rem, calc(0.404rem + 1.141cqi));
 }
 
 .d-overview .table-responsive,
@@ -545,8 +574,9 @@ footer a:hover img {
 .d-prices-edit .table,
 .admin-list .table {
     width: 100%;
+    min-width: 500px;
     table-layout: auto;
-    font-size: 0.575rem;
+    font-size: max(0.575rem, calc(0.435rem + 0.588cqi));
 }
 
 .admin-list .table {
@@ -616,7 +646,7 @@ footer a:hover img {
 }
 
 .img-col img {
-    width: 40px;
+    width: max(40px, calc(33.426px + 1.730cqi));
 }
 
 .icon-col {
@@ -628,8 +658,9 @@ footer a:hover img {
 }
 
 .icon-col .icon {
-    width: 12px;
+    width: max(12px, calc(8.056px + 1.038cqi));
     height: auto;
+    margin: max(0rem, calc(-0.066rem + 0.277cqi)) 0;
     transition: opacity 0.2s ease;
 }
 
@@ -640,7 +671,7 @@ footer a:hover img {
 .add-btn {
     background-color: var(--color-accent);
     font-family: "Quicksand", sans-serif;
-    font-size: 0.675rem;
+    font-size: max(0.675rem, calc(0.502rem + 0.727cqi));
     font-weight: bold;
     color: white;
     text-decoration: none;
@@ -650,6 +681,14 @@ footer a:hover img {
     cursor: pointer;
 }
 
+.d-category .add-btn {
+    margin-right: max(0rem, calc(-1.972rem + 8.304cqi));
+}
+
+.d-inventory .add-btn {
+    margin-left: max(0rem, calc(-3.287rem + 13.840cqi));
+}
+
 .add-btn:hover {
     background-color: var(--color-accent-hover);
 }
@@ -657,6 +696,7 @@ footer a:hover img {
 .product-search-bar {
     justify-content: flex-start;
     align-items: center;
+    margin-right: max(0rem, calc(-3.945rem + 16.609cqi));
 }
 
 .search-form {
@@ -674,7 +714,7 @@ footer a:hover img {
     left: 8px;
     top: 50%;
     transform: translateY(-50%);
-    width: 12px;
+    width: max(12px, calc(8.056px + 1.038cqi));
     pointer-events: none;
 }
 
@@ -683,14 +723,15 @@ footer a:hover img {
     border-radius: 2rem;
     font-family: "Nunito", sans-serif;
     color: var(--color-text-primary);
-    font-size: 0.475rem;
-    padding: 0.4rem 0.8rem 0.4rem 2rem;
+    font-size: max(0.475rem, calc(0.302rem + 0.727cqi));
+    padding: max(0.4rem, calc(0.334rem + 0.277cqi)) max(0.8rem, calc(0.734rem + 0.277cqi)) max(0.4rem, calc(0.334rem + 0.277cqi)) max(2rem, calc(1.671rem + 1.384cqi));
     width: 100%;
+    max-width: 400px;
 }
 
 .search-input::placeholder {
     color: #d3d3d3;
-    font-size: 0.5rem;
+    font-size: 1em;
 }
 
 .search-btn {
@@ -698,9 +739,9 @@ footer a:hover img {
     background: var(--color-accent);
     color: #fff;
     border: none;
-    border-radius: 0.3rem;
+    border-radius: max(0.3rem, calc(0.234rem + 0.277cqi));
     font-weight: bold;
-    font-size: 0.5rem;
+    font-size: max(0.5rem, calc(0.336rem + 0.692cqi));
     padding: 0.4rem 1.2rem;
     cursor: pointer;
 }
@@ -1031,41 +1072,6 @@ footer a:hover img {
         margin-bottom: 1rem;
     }
 
-    .d-home h1,
-    .d-overview h2 {
-        margin-left: 5rem;
-        margin-bottom: 2rem;
-    }
-
-    .d-grid {
-        row-gap: 4rem;
-        column-gap: 12rem;
-        margin: auto;
-    }
-
-    .d-item {
-        width: 400px;
-        height: 200px;
-        padding: 1rem;
-    }
-
-    .d-home img {
-        height: 65px;
-        margin: auto 0;
-        margin-left: 1.5rem;
-    }
-
-    .d-home .text {
-        margin: auto;
-    }
-
-    .d-home .num {
-        font-size: 3rem;
-    }
-
-    .d-home .desc {
-        font-size: 1.5rem;
-    }
 
     .d-overview .table-responsive,
     .d-category .table-responsive {
@@ -1088,62 +1094,6 @@ footer a:hover img {
         margin-top: 2rem;
     }
 
-    .d-overview .table,
-    .d-product .table,
-    .d-category .table,
-    .d-category-show .table,
-    .d-inventory .table,
-    .d-inventory-update .table,
-    .d-prices .table,
-    .d-prices-edit .table,
-    .admin-list .table {
-        font-size: 1rem;
-    }
-
-    .img-col img {
-        width: 60px;
-    }
-    .icon-col .icon {
-        width: 24px;
-        margin: 0.2rem 0;
-    }
-
-    .add-btn {
-        font-size: 1.2rem;
-        border-radius: 8px;
-        padding: 0.5rem 1.3rem;
-    }
-
-    .d-category .add-btn {
-        margin-right: 6rem;
-    }
-
-    .d-inventory .add-btn {
-        margin-left: 10rem;
-    }
-
-    .product-search-bar {
-        margin-right: 12rem;
-    }
-
-    .search-icon {
-        width: 24px;
-    }
-
-    .search-input {
-        font-size: 1rem;
-        padding: 0.6rem 1rem 0.6rem 3rem;
-        width: 400px;
-    }
-
-    .search-input::placeholder {
-        font-size: 1em;
-    }
-
-    .search-btn {
-        font-size: 1rem;
-        border-radius: 8px;
-    }
 
 
     .crud-card {
