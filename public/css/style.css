@@ -774,20 +774,26 @@ body:has(.d-nav) > .d-flex {
 .crud-card {
     border-radius: 2rem;
     box-shadow: 0 2px 16px #0002;
-    width: 300px;
-    padding: 1rem;
+    width: max(300px, calc(184.947px + 30.277cqi));
+    max-width: 100%;
+    padding: max(1rem, calc(0.671rem + 1.384cqi));
+}
+
+.d-product-edit .crud-card,
+.d-product-create .crud-card {
+    width: max(300px, calc(152.074px + 38.928cqi));
 }
 
 .crud-card b {
     font-family: "Baloo", sans-serif;
     color: var(--color-text-primary);
-    font-size: 0.8rem;
+    font-size: max(0.8rem, calc(0.668rem + 0.554cqi));
 }
 
 .crud-card span {
     font-family: "Nunito", sans-serif;
     color: var(--color-text-secondary);
-    font-size: 0.675rem;
+    font-size: max(0.675rem, calc(0.568rem + 0.450cqi));
 }
 
 .crud-card .desc {
@@ -795,7 +801,7 @@ body:has(.d-nav) > .d-flex {
 }
 
 .crud-card img {
-    width: 120px;
+    width: max(120px, calc(80.552px + 10.381cqi));
     object-fit: cover;
     border-radius: 10px;
     background: #eaf6fb;
@@ -804,18 +810,20 @@ body:has(.d-nav) > .d-flex {
 .crud-card p {
     font-family: "Nunito", sans-serif;
     color: var(--color-text-secondary);
-    font-size: 0.675rem;
+    font-size: max(0.675rem, calc(0.568rem + 0.450cqi));
+    margin-top: max(0rem, calc(-0.329rem + 1.384cqi));
 }
 
 .crud-card a,
 .crud-card button {
     font-family: "Quicksand", sans-serif;
-    font-size: 0.675rem;
+    font-size: max(0.675rem, calc(0.568rem + 0.450cqi));
     text-decoration: none;
     color: white;
     background-color: var(--color-accent);
+    border: none;
     border-radius: 8px;
-    padding: 0.4rem 1.2rem;
+    padding: max(0.4rem, calc(0.334rem + 0.277cqi)) max(0.7rem, calc(0.404rem + 1.245cqi));
 }
 
 .crud-card a:hover,
@@ -825,8 +833,8 @@ body:has(.d-nav) > .d-flex {
 
 .crud-card input,
 .crud-card select {
-    font-size: 0.5rem;
-    padding: 0.2rem 0.5rem;
+    font-size: max(0.5rem, calc(0.336rem + 0.692cqi));
+    padding: max(0.2rem, calc(0.167rem + 0.138cqi)) max(0.5rem, calc(0.401rem + 0.415cqi));
 }
 
 .crud-card label img {
@@ -841,6 +849,10 @@ body:has(.d-nav) > .d-flex {
 
 .upload img {
     width: 18px;
+}
+
+.wide-select {
+    min-width: 180px;
 }
 
 .delete-modal {
@@ -1096,67 +1108,12 @@ body:has(.d-nav) > .d-flex {
 
 
 
-    .crud-card {
-        border-radius: 2rem;
-        box-shadow: 0 2px 16px #0002;
-        width: 650px;
-        padding: 2rem;
-    }
-
-    .d-product-edit .crud-card,
-    .d-product-create .crud-card {
-        width: 750px;
-    }
-
     .crud-card .left-col {
         width: 55%;
     }
 
     .crud-card .text {
         margin-bottom: 0.8rem;
-    }
-
-    .crud-card b {
-        font-size: 1.2rem;
-    }
-
-    .crud-card span {
-        font-size: 1rem;
-    }
-
-    .crud-card img {
-        width: 240px;
-    }
-
-    .crud-card p {
-        font-size: 1rem;
-        margin-top: 1rem;
-    }
-
-    .crud-card a,
-    .crud-card button {
-        font-size: 1rem;
-        border-radius: 8px;
-        padding: 0.6rem 1.6rem;
-    }
-
-    .crud-card input,
-    .crud-card select {
-        font-size: 1rem;
-        padding: 0.3rem 0.8rem;
-    }
-
-    .crud-card label img {
-        width: 16px;
-        height: fit-content;
-    }
-
-    .upload img {
-        width: 18px;
-    }
-
-    .wide-select {
-        min-width: 180px;
     }
 
     .d-category-edit .card,

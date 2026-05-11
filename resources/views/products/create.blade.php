@@ -22,7 +22,7 @@
 
         <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
-            <div class="crud-card d-flex gap-4 align-items-start mx-auto">
+            <div class="crud-card d-flex flex-column flex-lg-row gap-4 align-items-lg-start mx-auto">
                 <div class="left-col">
                     <div class="mb-3 d-flex align-items-center">
                         <input type="text" id="product_name" name="product_name" class="form-control fw-bold @error('product_name') is-invalid @enderror"

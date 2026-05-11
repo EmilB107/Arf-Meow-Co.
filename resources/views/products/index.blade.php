@@ -77,7 +77,7 @@
                     </table>
                 </div>
 
-                <div class="mt-2 text-end">
+                <div class="mt-2 mb-5 text-end">
                     <a href="{{ route('products.create') }}" role="button" class="add-btn">Add Product</a>
                 </div>
             </div>
@@ -151,7 +151,7 @@
                                 <label class="form-check-label" for="outStock">Out of Stock</label>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary w-100 mt-2">Apply Filters</button>
+                        <button type="submit" class="add-btn w-100 mt-2">Apply Filters</button>
                     </form>
                 </div>
             </div>

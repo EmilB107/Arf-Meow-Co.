@@ -29,7 +29,7 @@
             </div>
             <div class="d-flex flex-column align-items-center">
                 <img src="{{ $product->image_path ? asset('storage/' . $product->image_path) : asset('images/img-placeholder.png') }}"
-                    alt="Product Image" style="width: 200px; height: auto;">
+                    alt="Product Image">
                 <div class="mt-auto">
                     {{-- Display stock status below the image with color coding --}}
                     @php
