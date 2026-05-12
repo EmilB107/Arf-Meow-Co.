@@ -467,6 +467,16 @@ footer a:hover img {
 .sidebar img {
     width: max(24px, calc(21.370px + 0.692cqi));
     height: auto;
+    transition: opacity 0.2s ease;
+}
+
+.sidebar a:hover img,
+.sidebar button:hover img {
+    opacity: 0.5;
+}
+
+.sidebar a:hover .menu-text {
+    color: var(--color-accent);
 }
 
 .sidebar a {
@@ -479,7 +489,7 @@ footer a:hover img {
 .menu-text {
     opacity: 0;
     transform: translateX(-10px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease, color 0.2s ease;
     white-space: nowrap;
     font-size: max(1rem, calc(0.901rem + 0.415cqi));
     margin-left: max(0.5rem, calc(0.402rem + 0.415cqi));
