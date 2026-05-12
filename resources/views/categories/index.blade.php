@@ -44,12 +44,10 @@
                                 @if ($role === 'Admin')
                                     <td class="icon-col">
                                         <a href="{{ route('categories.show', $category->id) }}" title="View Products in Category">
-                                            <img class="icon" src="{{ asset('images/view.png') }}" alt="View"
-                                                width="20">
+                                            <img class="icon" src="{{ asset('images/view.png') }}" alt="View">
                                         </a>
                                         <a href="{{ route('categories.edit', $subCategory->id) }}" title="Edit Sub Category">
-                                            <img class="icon" src="{{ asset('images/edit.png') }}" alt="Edit"
-                                                width="20">
+                                            <img class="icon" src="{{ asset('images/edit.png') }}" alt="Edit">
                                         </a>
                                         <a href="#"
                                             onclick="openDeleteModal('{{ route('categories.destroy', $subCategory->id) }}'); return false;" title="Delete Sub Category">
@@ -67,8 +65,7 @@
                                 @if ($role === 'Admin')
                                     <td class="icon-col">
                                         <a href="{{ route('categories.show', $category->id) }}" title="View Products in Category">
-                                            <img class="icon" src="{{ asset('images/view.png') }}" alt="View"
-                                                width="20">
+                                            <img class="icon" src="{{ asset('images/view.png') }}" alt="View">
                                         </a>
                                         {{-- No edit/delete for category directly here, as per controller --}}
                                         <span class="text-muted">N/A</span>
@@ -85,7 +82,7 @@
             </table>
         </div>
         @if ($role === 'Admin')
-            <div class="mt-2 text-end">
+            <div class="mt-2 mb-5 text-end">
                 <a href="{{ route('categories.create') }}" role="button" class="add-btn">
                     Add Sub Category
                 </a>

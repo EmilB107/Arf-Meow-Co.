@@ -685,6 +685,12 @@ body:has(.d-nav) > .d-flex {
     cursor: pointer;
 }
 
+@media (max-width: 1535px) {
+    .d-category .product-search-bar {
+        margin-right: 0;
+    }
+}
+
 .d-category .add-btn {
     margin-right: max(0rem, calc(-1.972rem + 8.304cqi));
 }
@@ -948,7 +954,7 @@ body:has(.d-nav) > .d-flex {
 
 .d-category-edit .card,
 .d-category-create .card {
-    max-width: 500px;
+    max-width: max(400px, calc(467.1px + 8.651cqi));
     background: #fff;
     border-radius: 20px;
     border: 1.5px solid #e6e6e6;
@@ -957,7 +963,7 @@ body:has(.d-nav) > .d-flex {
 .d-category-edit .form-label,
 .d-category-create .form-label {
     font-weight: bold;
-    font-size: 0.8rem;
+    font-size: max(0.8rem, calc(0.652rem + 0.623cqi));
     margin-bottom: 8px;
 }
 
@@ -966,7 +972,7 @@ body:has(.d-nav) > .d-flex {
     appearance: none;
     background: #e6e6e6;
     border: none;
-    font-size: 0.675rem;
+    font-size: max(0.675rem, calc(0.568rem + 0.450cqi));
     font-weight: bold;
 }
 
@@ -991,7 +997,7 @@ body:has(.d-nav) > .d-flex {
     background: var(--color-accent);
     color: #fff;
     font-weight: bold;
-    font-size: 0.675rem;
+    font-size: max(0.675rem, calc(0.568rem + 0.450cqi));
     border: none;
     border-radius: 8px;
     padding: 0.6rem 0.8rem;
@@ -1120,33 +1126,6 @@ body:has(.d-nav) > .d-flex {
         margin-bottom: 0.8rem;
     }
 
-    .d-category-edit .card,
-    .d-category-create .card {
-        max-width: 600px;
-        border-radius: 20px;
-        border: 1.5px solid #e6e6e6;
-    }
-
-    .d-category-edit .form-label,
-    .d-category-create .form-label {
-        font-size: 1.25rem;
-    }
-
-    .d-category-edit .form-control,
-    .d-category-create .form-control {
-        font-size: 1rem;
-    }
-
-    .d-category-edit span,
-    .d-category-create span {
-        right: 15px;
-        top: 50%;
-    }
-
-    .d-category-edit button,
-    .d-category-create button {
-        font-size: 1rem;
-    }
 
     .d-inventory-update td a,
     .d-prices-edit td a {
