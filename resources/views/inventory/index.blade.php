@@ -133,7 +133,7 @@
                                 <label class="form-check-label" for="outStock">Out of Stock</label>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary w-100 mt-2">Apply Filters</button>
+                        <button type="submit" class="add-btn w-100 mt-2">Apply Filters</button>
                     </form>
                 </div>
             </div>

@@ -59,13 +59,12 @@
                                         @csrf
                                         @method('PUT')
                                         
-                                        <input 
-                                            type="number" 
-                                            name="quantity" 
-                                            value="{{ $item->quantity }}" 
-                                            min="0" 
+                                        <input
+                                            type="number"
+                                            name="quantity"
+                                            value="{{ $item->quantity }}"
+                                            min="0"
                                             class="form-control text-center"
-                                            style="width: 100px !important; margin: 0 auto; display: inline-block; font-size: 1rem !important; color: black !important;"
                                             required>
                                 </td>
                                 <td>
@@ -91,7 +90,7 @@
                                     </span>
                                 </td>
                                 <td>
-                                    <button type="submit" class="btn btn-success btn-sm">Save</button>
+                                    <button type="submit">Save</button>
                                     </form>
                                 </td>
                             </tr>
@@ -148,7 +147,7 @@
                                 <label class="form-check-label" for="outStock">Out of Stock</label>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary w-100 mt-2">Apply Filters</button>
+                        <button type="submit" class="add-btn w-100 mt-2">Apply Filters</button>
                     </form>
                 </div>
             </div>

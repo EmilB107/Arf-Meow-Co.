@@ -642,6 +642,12 @@ footer a:hover img {
     width: max(40px, calc(33.426px + 1.730cqi));
 }
 
+.d-category .table th,
+.d-inventory .table th,
+.d-inventory-update .table th {
+    white-space: nowrap;
+}
+
 .icon-col {
     display: flex;
     flex-direction: column;
@@ -910,12 +916,12 @@ footer a:hover img {
 .d-inventory-update td a,
 .d-prices-edit td a {
     font-family: "Quicksand", sans-serif;
-    font-size: 0.5rem;
+    font-size: max(0.675rem, calc(0.568rem + 0.450cqi));
     text-decoration: none;
     color: white;
     background-color: var(--color-accent);
     border-radius: 8px;
-    padding: 0.2rem 0.4rem;
+    padding: max(0.2rem, calc(0.167rem + 0.138cqi)) max(0.5rem, calc(0.267rem + 0.970cqi));
 }
 
 .d-inventory-update td a:hover,
@@ -927,18 +933,31 @@ footer a:hover img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 350px;
 }
 
-/* Make quantity and stock columns fill the cell and align center */
-.d-inventory-update td input[type="number"],
-.d-inventory-update td select {
-    width: 30px;
+.d-inventory-update td input[type="number"] {
+    width: max(50px, calc(40.139px + 2.595cqi));
     margin: 0 auto;
-    padding: 0.2rem 0.3rem;
-    font-size: 0.5rem;
+    padding: max(0.2rem, calc(0.167rem + 0.138cqi)) max(0.3rem, calc(0.201rem + 0.415cqi));
+    font-size: max(0.675rem, calc(0.568rem + 0.450cqi));
     box-sizing: border-box;
     display: block;
+    text-align: center;
+}
+
+.d-inventory-update td button[type="submit"] {
+    font-family: "Quicksand", sans-serif;
+    font-size: max(0.675rem, calc(0.568rem + 0.450cqi));
+    color: white;
+    background-color: var(--color-accent);
+    border: none;
+    border-radius: 8px;
+    padding: max(0.2rem, calc(0.167rem + 0.138cqi)) max(0.5rem, calc(0.267rem + 0.970cqi));
+    cursor: pointer;
+}
+
+.d-inventory-update td button[type="submit"]:hover {
+    background-color: var(--color-accent-hover);
 }
 
 .d-category-edit .card,
@@ -1116,7 +1135,6 @@ footer a:hover img {
     }
 
 
-    .d-inventory-update td a,
     .d-prices-edit td a {
         font-size: 1rem;
         border-radius: 8px;
@@ -1126,27 +1144,6 @@ footer a:hover img {
     .d-prices-edit td input[type="number"] {
         width: 220px;
         padding: 0.4rem 3rem;
-        font-size: 1rem;
-    }
-
-    .d-inventory-update .form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 350px;
-    }
-
-    .d-inventory-update td input[type="number"] {
-        width: 50px;
-        margin: 0 auto;
-        padding: 0.2rem 0.3rem;
-        font-size: 0.5rem;
-        box-sizing: border-box;
-        display: block;
-    }
-
-    .d-inventory-update td select {
-        width: 180px;
         font-size: 1rem;
     }
 
