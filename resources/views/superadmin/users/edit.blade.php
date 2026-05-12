@@ -8,26 +8,25 @@
             @include('partials._return', ['route' => 'user.index'])
             <h1 class="mx-auto">Edit User</h1>
         </div>
-        <div class="card mx-auto p-4 mb-5" style="max-width: 600px; border-radius: 24px;">
+        <div class="card mx-auto p-4 mb-5">
             <form>
                 <div class="mb-4">
                     <input type="text" class="form-control fw-bold mb-4"
-                        style="font-size: 2rem; border: 1px solid #444; border-radius: 4px; padding: 0.2em 0.5em; display: inline-block;"
                         id="name" name="name" value="{{ $user['name'] }}">
                     <div class="mb-2 d-flex align-items-center">
-                        <span class="tamad-baloo fw-bold" style="font-size: 1rem;">Email:</span>
+                        <span class="tamad-baloo fw-bold">Email:</span>
                         <input type="email" class="form-control tamad-nunito ms-2 d-inline-block"
                             style="width: auto; min-width: 180px;" id="email" name="email"
                             value="{{ $user['email'] }}">
                     </div>
                     <div class="mb-2 d-flex align-items-center">
-                        <span class="tamad-baloo fw-bold" style="font-size: 1rem;">Username:</span>
+                        <span class="tamad-baloo fw-bold">Username:</span>
                         <input type="text" class="form-control tamad-nunito ms-2 d-inline-block"
                             style="width: auto; min-width: 120px;" id="username" name="username"
                             value="{{ $user['username'] }}">
                     </div>
                     <div class="mb-2 d-flex align-items-center">
-                        <span class="tamad-baloo fw-bold" style="font-size: 1rem;">Password:</span>
+                        <span class="tamad-baloo fw-bold">Password:</span>
                         <input type="password" class="form-control tamad-nunito ms-2 d-inline-block"
                             style="width: auto; min-width: 120px;" id="password" name="password"
                             value="{{ $user['password'] }}">
@@ -40,7 +39,7 @@
                         </span>
                     </div>
                     <div class="mb-2 d-flex align-items-center">
-                        <span class="tamad-baloo fw-bold" style="font-size: 1rem;">Role:</span>
+                        <span class="tamad-baloo fw-bold">Role:</span>
                         <select class="form-select tamad-nunito ms-2 d-inline-block" style="width: auto; min-width: 120px;"
                             id="role" name="role">
                             <option value="Admin" {{ $user['role'] == 'Admin' ? 'selected' : '' }}>Admin</option>
@@ -48,7 +47,7 @@
                                 Project Manager</option>
                         </select>
                     </div>
-                    <div class="tamad-baloo fw-bold mt-4 mb-2" style="font-size: 1.1rem;">Permissions:</div>
+                    <div class="tamad-baloo fw-bold mt-4 mb-2">Permissions:</div>
                     <div id="permissions-list" class="d-flex flex-wrap gap-2">
                         @foreach ($user['permissions'] as $permission)
                             <span class="badge rounded-pill px-4 py-2"
@@ -57,9 +56,7 @@
                     </div>
                 </div>
                 <div class="text-end">
-                    <button type="submit" class="btn"
-                        style="background:#34d399; color:#fff; font-weight:600; font-size:1.2rem; border-radius:12px; min-width:200px;">Save
-                        Changes</button>
+                    <button type="submit">Save Changes</button>
                 </div>
             </form>
         </div>

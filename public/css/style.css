@@ -659,7 +659,8 @@ body:has(.d-nav) > .d-flex {
 .d-inventory .table th,
 .d-inventory-update .table th,
 .d-prices .table th,
-.d-prices-edit .table th {
+.d-prices-edit .table th,
+.admin-list .table th {
     white-space: nowrap;
 }
 
@@ -1108,6 +1109,41 @@ body:has(.d-nav) > .d-flex {
     width: 180px;
 }
 
+.admin-list .card {
+    max-width: max(400px, calc(334.256px + 17.301cqi));
+    border-radius: max(1rem, calc(0.671rem + 1.384cqi));
+}
+
+.admin-list .card .form-control.fw-bold {
+    font-size: max(1.2rem, calc(0.937rem + 1.107cqi));
+    border: 1px solid #444;
+    border-radius: 4px;
+    padding: 0.2em 0.5em;
+    display: inline-block;
+}
+
+.admin-list .card h2.fw-bold {
+    font-size: max(1.2rem, calc(0.937rem + 1.107cqi));
+}
+
+.admin-list .card .tamad-baloo {
+    font-size: max(0.675rem, calc(0.568rem + 0.450cqi));
+}
+
+.admin-list .card button[type="submit"] {
+    background: var(--color-accent);
+    color: #fff;
+    font-weight: 600;
+    font-size: max(0.8rem, calc(0.668rem + 0.554cqi));
+    border: none;
+    border-radius: 12px;
+    min-width: max(120px, calc(93.704px + 6.920cqi));
+    cursor: pointer;
+}
+
+.admin-list .card button[type="submit"]:hover {
+    background: var(--color-accent-hover);
+}
 
 .tamad-baloo {
     font-family: "Baloo", sans-serif;

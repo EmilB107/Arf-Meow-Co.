@@ -9,9 +9,9 @@
             @include('partials._return', ['route' => 'user.index'])
             <h1 class="mx-auto">View User</h1>
         </div>
-        <div class="card mx-auto p-4 mb-5" style="max-width: 600px; border-radius: 24px;">
+        <div class="card mx-auto p-4 mb-5">
             <div class="mb-4">
-                <h2 class="fw-bold mb-4" style="font-size: 2rem;">{{ $user['name'] }}</h2>
+                <h2 class="fw-bold mb-4">{{ $user['name'] }}</h2>
                 <div class="mb-2"><span class="tamad-baloo fw-bold">Email:</span> <span class="tamad-nunito text-muted">{{ $user['email'] ?? 'N/A' }}</span>
                 </div>
                 <div class="mb-2"><span class="tamad-baloo fw-bold">Username:</span> <span class="tamad-nunito text-muted">{{ $user['username'] ?? 'N/A' }}</span></div>
@@ -28,7 +28,7 @@
                     </span>
                 </div>
                 <div class="mb-2"><span class="tamad-baloo fw-bold">Role:</span> <span class="tamad-nunito text-muted">{{ $user['role'] }}</span></div>
-                <div class="tamad-baloo fw-bold mt-4 mb-2" style="font-size: 1.1rem;">Permissions:</div>
+                <div class="tamad-baloo fw-bold mt-4 mb-2">Permissions:</div>
                 <div class="d-flex flex-wrap gap-2">
                     @foreach ($user['permissions'] as $permission)
                         <span class="badge rounded-pill px-4 py-2" style="background:#f7bcbc; color:#222; font-weight:500;">{{ $permission }}</span>
