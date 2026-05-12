@@ -439,10 +439,13 @@ footer a:hover img {
 }
 
 
+body:has(.d-nav) > .d-flex {
+    min-height: 100dvh;
+}
+
 .sidebar {
     flex-shrink: 0;
     align-self: stretch;
-    min-height: 100dvh;
     background-color: #d3d3d3;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: max(38px, calc(34.056px + 1.038cqi));

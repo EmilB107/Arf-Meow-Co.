@@ -21,16 +21,4 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Sidebar height adjustment for 1536px+
-    function adjustSidebarHeight() {
-        if (!sidebar) return;
-        if (window.innerWidth >= 1536) {
-            sidebar.style.height = '105vh';
-        } else {
-            sidebar.style.height = '';
-        }
-    }
-
-    adjustSidebarHeight();
-    window.addEventListener('resize', adjustSidebarHeight);
 });
