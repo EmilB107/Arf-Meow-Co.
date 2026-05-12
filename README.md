@@ -119,7 +119,7 @@ The test suite uses an in-memory SQLite database — no extra setup needed beyon
 php artisan test
 ```
 
-63 tests across auth, registration, role redirects, product CRUD, and access control.
+61 tests across auth, registration, role redirects, product CRUD, and access control.
 
 ## Running the Dev Server
 
@@ -149,6 +149,10 @@ After seeding, you can log in with these accounts:
 - Role-based access: Super Admin, Admin, Project Manager
 - User management (Super Admin only)
 - User signup
+
+## Limitations
+
+The Super Admin user management pages (create, edit, and view for Admins, Project Managers, and Users) are frontend-only. The forms are not connected to backend routes and do not persist data — this functionality was not implemented on the backend.
 
 ## Role Permissions
 
